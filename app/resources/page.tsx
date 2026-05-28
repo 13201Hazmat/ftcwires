@@ -27,7 +27,7 @@ const CATEGORIES: ResourceCategory[] = [
     tag: "Links",
     title: "Important Sites",
     blurb:
-      "The handful of tabs every FTC team keeps open during build season.",
+      "Some links every FTC team should know about.",
     links: [
       {
         label: "FIRST Tech Challenge",
@@ -35,20 +35,16 @@ const CATEGORIES: ResourceCategory[] = [
         href: "https://www.firstinspires.org/robotics/ftc",
       },
       {
-        label: "ftc-docs",
-        desc: "Canonical software and control system documentation.",
+        label: "FTC Docs",
+        desc: "Official FTC software and control system resources",
         href: "https://ftc-docs.firstinspires.org",
       },
       {
-        label: "GoBilda",
-        desc: "Drivetrains, structure, and the build standard most teams use.",
-        href: "https://www.gobilda.com",
+        label: "Resource Page for the Current Season",
+        desc: "All rules and game information for the current season.",
+        href: "https://www.firstinspires.org/resource-library/ftc/game-and-season-info",
       },
-      {
-        label: "REV Robotics",
-        desc: "Control hubs, motors, and the electronics platform.",
-        href: "https://www.revrobotics.com",
-      },
+      
     ],
   },
   {
@@ -56,17 +52,17 @@ const CATEGORIES: ResourceCategory[] = [
     tag: "Directory",
     title: "Team Info",
     blurb:
-      "The Wisconsin team information sheet — meet, message, and mentor across teams.",
+      "Team contact info, statewide directories, and the official FTC team search.",
     links: [
       {
         label: "WI Team Information Sheet",
         desc: "Add your team to the statewide directory.",
-        href: "#",
+        href: "https://docs.google.com/spreadsheets/d/1LoPDYOcQMRxzrSfYHr_Tl5c3CwQim_ljFFa0kbwS0bo/edit?usp=sharing",
       },
       {
-        label: "Mentor & alumni list",
-        desc: "Veteran mentors open to questions from new teams.",
-        href: "#",
+        label: "FTC Team Search",
+        desc: "Search for teams all across the worlds.",
+        href: "https://www.firstinspires.org/team-event-search",
       },
     ],
   },
@@ -77,16 +73,23 @@ const CATEGORIES: ResourceCategory[] = [
     blurb:
       "Open documents, scouting boards, and channels for live inter-team coordination.",
     links: [
+     
       {
-        label: "Shared scouting workbook",
-        desc: "A template every team can fork before competition.",
-        href: "#",
+        label: "FTC Discord",
+        desc: "Connect with FTC teams, ask questions, share ideas, and get help.",
+        href: "https://discord.gg/fbPt4rj2S",
       },
       {
-        label: "Inter-team channel",
-        desc: "Where Wisconsin teams ask questions and share fixes.",
-        href: "#",
+        label: "FTC Reddit",
+        desc: "Connect with FTC teams, ask questions, share ideas, and get help.",
+        href: "https://www.reddit.com/r/FTC/",
       },
+      {
+        label: "FIRST Instagram",
+        desc: "Follow FIRST on Instagram for updates, highlights, and community stories.",
+        href: "https://www.instagram.com/first_official_/?hl=en",
+      },
+      
     ],
   },
   {
@@ -97,88 +100,159 @@ const CATEGORIES: ResourceCategory[] = [
       "Rookie onboarding, safety basics, season structure, and parent-friendly guides.",
     links: [
       {
-        label: "First-season guide for rookies",
-        desc: "What a typical season actually looks like, week by week.",
-        href: "#",
+        label: "Game Manual 0 (GM0)",
+        desc: "One of the best community-made guides for learning FTC hardware, software, and strategy.",
+        href: "https://gm0.org/en/latest/",
       },
       {
-        label: "Safety & PPE checklist",
-        desc: "Set up a safe shop on a school or community budget.",
-        href: "#",
+        label: "Official FIRST Resources",
+        desc: "Official season information, rules, updates, and FTC documentation from FIRST.",
+        href: "https://www.firstinspires.org/resource-library/ftc/game-and-season-info",
+      },
+      {
+        label: "FTC SIM",
+        desc: "A browser-based FTC simulator for practicing programming and robot control concepts.",
+        href: "http://ftcsim.org/",
+      },
+      {
+        label: "OnShape",
+        desc: "Cloud-based CAD software widely used by FTC teams for robot design and collaboration.",
+        href: "https://www.onshape.com",
       },
     ],
   },
+{
+  id: "hardware",
+  tag: "Build",
+  title: "Hardware",
+  blurb:
+    "Some Common Hardware Suppliers and Resources for FTC teams.",
+  links: [
+    {
+      label: "GoBilda",
+      desc: "A common FTC hardware supplier for drivetrains, motors, structure, motion components, and kits.",
+      href: "https://www.gobilda.com",
+    },
+    {
+      label: "REV Robotics",
+      desc: "Control hubs, motors, electronics, sensors, and official FTC control system hardware.",
+      href: "https://www.revrobotics.com",
+    },
+    {
+      label: "Axon Robotics",
+      desc: "FTC-focused servos",
+      href: "https://axon-robotics.com/",
+    },
+    {
+      label: "AndyMark",
+      desc: "FTC and FRC robotics parts including drivetrains, wheels, electronics, and field components.",
+      href: "https://www.andymark.com/",
+    },
+    {
+      label: "Studica Robotics",
+      desc: "Robotics hardware, educational tools, sensors, and engineering resources for STEM teams.",
+      href: "https://www.studica.com/",
+    },
+    {
+      label: "McMaster-Carr",
+      desc: "Industrial hardware supplier commonly used by FTC teams for fasteners, materials, bearings, and mechanical components.",
+      href: "https://www.mcmaster.com/",
+    },
+    {
+      label: "CNC Madness",
+      desc: "Custom FTC machining, odometry pods, drivetrain components, and precision robotics parts.",
+      href: "https://cncmadness.com/",
+    },
+    {
+      label: "Fabworks",
+      desc: "Custom manufacturing and fabrication services for robotics teams and engineering projects.",
+      href: "https://www.fabworks.com/",
+    },
+    {
+      label: "FIRST Wisconsin Production Hub",
+      desc: "Manufacturing and production resources available through the Wisconsin FIRST community.",
+      href: "https://www.firstinspireswi.org/about-3",
+    },
+    {
+      label: "Gearheads How To",
+      desc: "FTC-focused tutorials, build walkthroughs, and robotics educational videos.",
+      href: "https://www.youtube.com/channel/UCvdPn8BdIWaWhwaCBCWzmZw",
+    },
+  ],
+},
   {
-    id: "hardware",
-    tag: "Build",
-    title: "Hardware",
-    blurb:
-      "Proven drivetrains, intakes, lifts, and BOMs — copy a known-good design.",
-    links: [
-      {
-        label: "Mecanum drivetrain BOM",
-        desc: "A documented, build-tested baseline drivetrain.",
-        href: "#",
-      },
-      {
-        label: "Slide mechanisms 101",
-        desc: "Cascade, continuous, and tube — when to use which.",
-        href: "#",
-      },
-      {
-        label: "Intake design patterns",
-        desc: "Recurring intake archetypes and when they win.",
-        href: "#",
-      },
-    ],
-  },
+  id: "software",
+  tag: "Code",
+  title: "Software",
+  blurb:
+    "Programming tools, setup guides, SDK resources, and software references commonly used by FTC teams.",
+  links: [
+    {
+      label: "GitHub",
+      desc: "Version control and code hosting used by most FTC teams.",
+      href: "https://github.com/",
+    },
+    {
+      label: "Android Studio",
+      desc: "The primary IDE used for FTC robot programming.",
+      href: "https://developer.android.com/studio",
+    },
+    {
+      label: "REV Hardware Client",
+      desc: "Firmware updates, device management, and configuration tools for REV hardware.",
+      href: "https://docs.revrobotics.com/rev-hardware-client",
+    },
+    {
+      label: "Cookbook",
+      desc: "Community-maintained FTC troubleshooting guides, tips, and programming solutions.",
+      href: "https://cookbook.dairy.foundation/",
+    },
+    {
+      label: "Roadrunner",
+      desc: "Motion planning and autonomous pathing library widely used in FTC.",
+      href: "https://acmerobotics.github.io/road-runner/",
+    },
+    {
+      label: "Pedro Pathing",
+      desc: "Community FTC pathing framework focused on flexible autonomous movement.",
+      href: "https://pedropathing.com/",
+    },
+    {
+      label: "FTC SDK Documentation",
+      desc: "Official SDK documentation, setup guides, and FTC programming resources.",
+      href: "https://ftc-docs.firstinspires.org/",
+    },
+  ],
+},
   {
-    id: "software",
-    tag: "Code",
-    title: "Software",
-    blurb:
-      "Java templates, Android Studio setup, tuning guides, and reusable subsystems.",
-    links: [
-      {
-        label: "Autonomous template",
-        desc: "Drop-in starter from the FTC Wires software platform.",
-        href: "/software-platform",
-      },
-      {
-        label: "Command-Based Architecture",
-        desc: "Educational guidance and references for scalable FTC codebases.",
-        href: "/command-based",
-      },
-      {
-        label: "Subsystem patterns",
-        desc: "How to structure code so it survives rebuilds.",
-        href: "#",
-      },
-      {
-        label: "Roadrunner tuning notes",
-        desc: "Tuning checklist that gets you to repeatable autos.",
-        href: "#",
-      },
-    ],
-  },
-  {
-    id: "game-strategy",
-    tag: "Game",
-    title: "Game Strategy",
-    blurb: "Scoring math, scouting templates, and alliance selection frameworks.",
-    links: [
-      {
-        label: "Scoring math worksheet",
-        desc: "Translate the game manual into a per-second EV model.",
-        href: "#",
-      },
-      {
-        label: "Alliance selection playbook",
-        desc: "How veteran teams pick (and get picked) on selection day.",
-        href: "#",
-      },
-    ],
-  },
+  id: "game-strategy",
+  tag: "Game",
+  title: "Game Strategy",
+  blurb:
+    "Scouting tools, match analysis resources, alliance strategy, and competitive planning guides for FTC teams.",
+  links: [
+    {
+      label: "FTCScout",
+      desc: "Match analytics, team statistics, scouting insights, and performance breakdowns for FTC competitions.",
+      href: "https://ftcscout.org/",
+    },
+    {
+      label: "FTCStats",
+      desc: "Historical FTC event statistics, rankings, match data, and team performance tracking.",
+      href: "https://www.ftcstats.org/",
+    },
+    {
+      label: "Scouting Guide",
+      desc: "Practical FTC scouting strategies, workflows, and competitive analysis guidance.",
+      href: "https://docs.google.com/document/d/1lVtBp20XT_ZGtRpURoLbqTFpbBjoPcP--gMr0LWLjcY/edit?usp=sharing",
+    },
+    {
+      label: "Scouting Template",
+      desc: "Spreadsheet template for collecting, organizing, and analyzing FTC scouting data.",
+      href: "https://docs.google.com/spreadsheets/d/1IDxuZjm0IEe5axS9IOsYvBfZytGsnf2uzbL7xbU2SkA/edit?gid=0#gid=0",
+    },
+  ],
+},
 ];
 
 export default function ResourcesPage() {
@@ -252,16 +326,20 @@ function Categories() {
                   >
                     <a
                       href={l.href}
+                      target={l.href.startsWith("http") ? "_blank" : undefined}
+                      rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
                       className="group flex items-start gap-4 py-5 transition-colors hover:bg-foreground/[0.02]"
                     >
                       <div className="flex-1">
                         <div className="text-[15px] font-medium text-foreground">
                           {l.label}
                         </div>
+
                         <div className="mt-1 text-[13px] leading-relaxed text-muted">
                           {l.desc}
                         </div>
                       </div>
+
                       <ArrowUpRight className="mt-1 h-4 w-4 text-subtle transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
                     </a>
                   </li>
