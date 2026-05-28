@@ -47,7 +47,6 @@ export default function Home() {
 
       <Stats />
       <PortalGrid />
-      <SupportedTools />
       <Mission />
       <HomeCTA />
     </>
@@ -288,48 +287,7 @@ function SupportedTools() {
       blurb: "An architecture pattern for scalable codebases.",
     },
   ];
-  return (
-    <section className="px-6 py-24 lg:py-32">
-      <div className="mx-auto max-w-6xl">
-        <SectionHeader
-          eyebrow="What we cover"
-          title={
-            <>
-              Guides for the tools
-              <span className="block text-fade">FTC teams actually use.</span>
-            </>
-          }
-          desc="We don't build a robotics framework — we share examples and walkthroughs for the ones the community already trusts."
-        />
-
-        <div className="mt-16 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {tools.map((t) => (
-            <div
-              key={t.name}
-              className="relative rounded-2xl border p-6"
-              style={{
-                borderColor: "var(--border)",
-                background: "var(--surface)",
-              }}
-            >
-              <div className="flex items-center gap-2">
-                <span
-                  className="inline-block h-1.5 w-1.5 rounded-full"
-                  style={{ background: "var(--foreground)" }}
-                />
-                <span className="text-[15px] font-medium tracking-tight text-foreground">
-                  {t.name}
-                </span>
-              </div>
-              <p className="mt-2 text-[13px] leading-relaxed text-muted">
-                {t.blurb}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  
 }
 
 /* =====================================================
@@ -391,7 +349,7 @@ function HomeCTA() {
             <>
               Made by teams.
               <span className="block text-fade">
-                For every team in Wisconsin.
+                For every team in Wisconsin and the Globe.
               </span>
             </>
           }

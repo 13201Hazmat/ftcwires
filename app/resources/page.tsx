@@ -262,20 +262,17 @@ export default function ResourcesPage() {
         eyebrow="Resources"
         title={
           <>
-            Everything teams ask for,
-            <span className="block text-fade">in one library.</span>
+            Resources for FTC teams,
+            <span className="block text-fade">in one place.</span>
           </>
         }
-        desc="A curated, community-maintained library. Submit what helped your team, borrow what helps you ship."
+        desc="A community-maintained library. Submit what helped your team, use what helps you."
         cta={
           <>
             <PrimaryButton href="/contact" className="w-full sm:w-auto">
               Contribute a resource
               <ArrowRight className="h-4 w-4" />
             </PrimaryButton>
-            <GhostButton href="#hardware" className="w-full sm:w-auto">
-              Jump to Hardware
-            </GhostButton>
           </>
         }
       />

@@ -17,48 +17,44 @@ const NAV: NavItem[] = [
   {
     label: "Resources",
     href: "/resources",
-    items: [
+    items: 
+    [
       {
         label: "Important Sites",
-        desc: "Curated links every FTC team should bookmark.",
+        desc: "Official FTC links, documentation, and season resources.",
         href: "/resources#important-sites",
       },
       {
         label: "Team Info",
-        desc: "Directory of Wisconsin teams and contacts.",
+        desc: "Wisconsin FTC team directories, contacts, and event information.",
         href: "/resources#team-info",
       },
       {
         label: "Collaborate",
-        desc: "Shared documents and inter-team channels.",
+        desc: "Discord servers, shared communities, and team collaboration spaces.",
         href: "/resources#collaborate",
       },
       {
         label: "General Resources",
-        desc: "Onboarding material for new teams.",
+        desc: "Beginner guides, CAD tools, simulators, and core FTC resources.",
         href: "/resources#general",
       },
       {
         label: "Hardware",
-        desc: "Build guides, BOMs, and proven designs.",
+        desc: "FTC hardware suppliers, manufacturing resources, and build tools.",
         href: "/resources#hardware",
       },
       {
         label: "Software",
-        desc: "Autonomous templates and code samples.",
+        desc: "Programming tools, SDK resources, pathing libraries, and setup guides.",
         href: "/resources#software",
       },
       {
         label: "Game Strategy",
-        desc: "Season scouting notes and playbooks.",
+        desc: "Scouting tools, match analysis resources, and competitive strategy guides.",
         href: "/resources#game-strategy",
       },
-      {
-        label: "Command-Based Architecture",
-        desc: "Guidance, examples, and references for scalable FTC code.",
-        href: "/command-based",
-      },
-    ],
+    ]
   },
   {
     label: "Planning",
