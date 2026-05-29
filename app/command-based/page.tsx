@@ -84,10 +84,9 @@ function Disclosure() {
             Command-based programming was popularized by{" "}
             <span className="text-foreground">WPILib</span> in FRC and has
             been adapted to FTC by community libraries like{" "}
-            <span className="text-foreground">FTCLib</span> and{" "}
-            <span className="text-foreground">NextFTC</span>. FTC Wires
-            doesn&rsquo;t own this pattern — we collect, explain, and curate
-            it so your team can adopt it confidently.
+            <span className="text-foreground">NextFTC</span> and{" "}
+            <span className="text-foreground">Ivy</span> etc. FTC Wires
+            helps educate teams on the pattern and how to use it so your team can adopt it confidently.
           </p>
         </div>
       </div>
@@ -304,8 +303,8 @@ function Concepts() {
           eyebrow="Core concepts"
           title={
             <>
-              Five primitives.
-              <span className="block text-fade">Everything composes from these.</span>
+              The building blocks 
+              <span className="block text-fade">of command-based programming.</span>
             </>
           }
         />
@@ -715,10 +714,10 @@ function ContributeCTA() {
 
             <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2">
               {[
-                "Reference Drivetrain subsystem",
-                "Reusable AlignToTag command",
+                "Reference subsystem",
+                "Auto Command Routines",
                 "Sequential auto walkthrough",
-                "Teleop binding pattern",
+                "Teleop binding",
               ].map((it) => (
                 <div
                   key={it}
