@@ -11,7 +11,7 @@
   --border-strong: rgba(0, 0, 0, 0.14);
   --surface: #ffffff;
   --surface-elevated: #ffffff;
-  --surface-glass: rgba(255, 255, 255, 0.7);
+  --surface-glass: rgba(255, 255, 255, 0.94);
   --hairline: rgba(0, 0, 0, 0.06);
   --accent: #0a0a0a;
   --glow: rgba(0, 0, 0, 0.04);
@@ -26,7 +26,7 @@
   --border-strong: rgba(255, 255, 255, 0.14);
   --surface: rgba(255, 255, 255, 0.025);
   --surface-elevated: rgba(255, 255, 255, 0.04);
-  --surface-glass: rgba(10, 10, 12, 0.65);
+  --surface-glass: rgba(10, 10, 12, 0.92);
   --hairline: rgba(255, 255, 255, 0.06);
   --accent: #ffffff;
   --glow: rgba(120, 160, 255, 0.12);

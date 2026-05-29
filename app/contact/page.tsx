@@ -16,29 +16,24 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        eyebrow="Contact"
+        eyebrow=""
         title={
           <>
-            Bring your team
-            <span className="block text-fade">into the network.</span>
+            Contact us
           </>
         }
-        desc="Register your team, request the software platform, join the Parts Lending waitlist, or just say hi. We answer every email — usually the same day."
+        desc="Request the software platform, ask questions, or just say hi. We try to answer everything."
         cta={
           <>
-            <PrimaryButton
-              href="mailto:ftcwires@gmail.com"
-              className="w-full sm:w-auto"
-            >
-              Email ftcwires@gmail.com
-              <ArrowRight className="h-4 w-4" />
-            </PrimaryButton>
-            <GhostButton
-              href="/parts-lending-network"
-              className="w-full sm:w-auto"
-            >
-              Join the waitlist
-            </GhostButton>
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=ftcwires@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition hover:opacity-90 sm:w-auto"
+          >
+            Email ftcwires@gmail.com
+            <ArrowRight className="h-4 w-4" />
+          </a>
           </>
         }
       />
@@ -54,27 +49,21 @@ function Channels() {
     {
       tag: "Email",
       label: "ftcwires@gmail.com",
+      desc: "The fastest way to reach us.",
+      href: "https://mail.google.com/mail/?view=cm&fs=1&to=ftcwires@gmail.com"
+    },
+    {
+      tag: "Lead Team Email",
+      label: "teamhazmat13201@gmail.com",
       desc: "The fastest way to reach the core team.",
-      href: "mailto:ftcwires@gmail.com",
+      href: "https://mail.google.com/mail/?view=cm&fs=1&to=teamhazmat13201@gmail.com",
     },
     {
-      tag: "Software",
-      label: "Request the autonomous platform",
-      desc: "Tell us your team number and we'll get you set up.",
-      href: "/software-platform",
-    },
-    {
-      tag: "Hardware",
-      label: "Join the Parts Lending waitlist",
-      desc: "Early access opens to founding teams first.",
-      href: "/parts-lending-network",
-    },
-    {
-      tag: "Contribute",
-      label: "Submit a resource",
-      desc: "Share a guide, BOM, or template that helped your team.",
-      href: "mailto:ftcwires@gmail.com?subject=Resource%20submission",
-    },
+      tag: "Team Hazmat Instagram",
+      label: "Follow us for updates",
+      desc: "Stay in the loop with the latest news and announcements.",
+      href: "https://www.instagram.com/team13201hazmat/",
+    }
   ];
 
   return (
@@ -84,8 +73,8 @@ function Channels() {
           eyebrow="Get in touch"
           title={
             <>
-              Pick the door
-              <span className="block text-fade">that fits.</span>
+              Different ways
+              <span className="block text-fade">to reach.</span>
             </>
           }
         />

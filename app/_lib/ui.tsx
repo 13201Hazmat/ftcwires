@@ -23,7 +23,7 @@ export function WiresLogo({
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/wires-logo.svg"
+          src="/WIRESbg.png"
           alt="FTC W.I.R.E.S."
           width={size}
           height={size}

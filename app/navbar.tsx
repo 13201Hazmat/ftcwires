@@ -268,7 +268,7 @@ export default function Navbar() {
               color: "var(--background)",
             }}
           >
-            Join the network
+            Register
             <ArrowRight className="h-3 w-3" />
           </Link>
 

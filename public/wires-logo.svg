@@ -1,17 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="wis-fill" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#3B82F6"/>
       <stop offset="100%" stop-color="#1D4ED8"/>
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="14" fill="url(#g)"/>
+  <!-- Wisconsin state silhouette (simplified, recognizable) -->
+  <path d="M 13,13
+           L 22,11 L 28,12 L 34,11 L 40,12 L 46,11 L 49,12
+           L 50,8 L 52,7 L 54,9 L 54,15 L 53,18
+           L 54,24 L 53,32 L 54,40 L 52,46
+           L 48,50 L 41,52 L 32,53 L 22,52 L 16,50
+           L 12,46 L 10,40 L 9,32 L 10,24 L 12,18 Z"
+        fill="url(#wis-fill)"/>
+  <!-- Cable connector (white, centered) -->
   <g fill="#ffffff">
-    <!-- abstract connector / plug glyph -->
-    <rect x="20" y="18" width="6" height="14" rx="1.5"/>
-    <rect x="38" y="18" width="6" height="14" rx="1.5"/>
-    <rect x="18" y="32" width="28" height="8" rx="3"/>
-    <rect x="30" y="40" width="4" height="8"/>
-    <circle cx="32" cy="50" r="2.5"/>
+    <!-- left plug body -->
+    <rect x="14" y="26" width="11" height="14" rx="2.5"/>
+    <!-- right plug body -->
+    <rect x="39" y="26" width="11" height="14" rx="2.5"/>
+    <!-- center bridge -->
+    <rect x="22" y="30" width="20" height="6" rx="1"/>
+    <!-- prong holes (left) -->
+    <circle cx="17.5" cy="31" r="0.9" fill="#1D4ED8"/>
+    <circle cx="17.5" cy="35" r="0.9" fill="#1D4ED8"/>
+    <!-- prong holes (right) -->
+    <circle cx="46.5" cy="31" r="0.9" fill="#1D4ED8"/>
+    <circle cx="46.5" cy="35" r="0.9" fill="#1D4ED8"/>
   </g>
 </svg>

@@ -15,8 +15,7 @@ export default function Home() {
         eyebrow="A Wisconsin FTC community project"
         title={
           <>
-            Wisconsin FTC,
-            <span className="block text-fade">sharing what works.</span>
+           Wisconsin Initiative Rising to Enable STEM
           </>
         }
         desc={
