@@ -54,7 +54,6 @@ export default function CommandBasedPage() {
       <Concepts />
       <Layout />
       <Skeletons />
-      <Scaling />
       <References />
       <ContributeCTA />
     </>
@@ -153,26 +152,26 @@ function WhatItIs() {
                   style={{ background: "var(--border-strong)" }}
                 />
                 <span className="ml-3 text-[11px] text-subtle">
-                  AutoScorePreload.java — illustrative
+                  AutoScorePreload.java
                 </span>
               </div>
               <pre className="overflow-x-auto px-5 py-5 text-foreground">
                 <code>
-                  <span className="text-subtle">// behavior reads like prose</span>
+                  <span className="text-subtle">// commands reads almost like english</span>
                   {"\n"}
                   schedule(
                   {"\n"}
                   {"  "}new SequentialCommandGroup(
                   {"\n"}
-                  {"    "}drive.followPath(Paths.<span className="text-fade">SPIKE</span>),
+                  {"    "}drive.followPath(Paths.<span className="text-fade">INTAKE</span>),
                   {"\n"}
-                  {"    "}arm.moveTo(ArmPose.<span className="text-fade">HIGH</span>),
+                  {"    "}intake.start(),
                   {"\n"}
-                  {"    "}claw.release(),
+                  {"    "}drive.followPath(Paths.<span className="text-fade">LAUNCH</span>),
                   {"\n"}
-                  {"    "}drive.alignTo(AprilTag.<span className="text-fade">RED_2</span>),
+                  {"    "}launcher.launch(),
                   {"\n"}
-                  {"    "}drive.park(ParkZone.<span className="text-fade">CORNER</span>)
+                  {"    "}drive.park(Paths.<span className="text-fade">PARK</span>)
                   {"\n"}
                   {"  "})
                   {"\n"}
@@ -197,42 +196,42 @@ function WhatItIs() {
 function WhyTeams() {
   const items = [
     {
-      title: "Scales with your codebase",
-      desc: "New mechanisms slot in as new subsystems and commands. No giant teleop loop to refactor every time.",
+      title: "Easier to expand",
+      desc: "New mechanisms and features can be added without constantly rewriting the entire robot structure.",
     },
     {
-      title: "Cleaner autonomous routines",
-      desc: "Sequential, parallel, and conditional command groups replace tangled state machines.",
+      title: "Reusable commands",
+      desc: "Commands written for teleop can often be reused in autonomous routines and other opmodes.",
     },
     {
-      title: "Reusable building blocks",
-      desc: "A command written for teleop bindings can be reused inside auto routines and vice versa.",
+      title: "Cleaner autonomous code",
+      desc: "Autos become easier to organize using reusable commands instead of large state machines or a giant opmode.",
     },
     {
-      title: "Easier debugging",
-      desc: "Failures localize to a single command or subsystem instead of an entire opmode.",
+      title: "Simpler debugging",
+      desc: "Problems are easier to isolate when logic is separated into smaller subsystems and commands.",
     },
     {
-      title: "Better collaboration",
-      desc: "Two programmers can work on two subsystems without colliding in the same file.",
+      title: "Better team collaboration",
+      desc: "Multiple programmers can work on different robot systems without constantly editing the same files. This and good git management practices help a lot.",
     },
     {
-      title: "Separates hardware from behavior",
-      desc: "Subsystems own the motors and sensors. Commands describe intent. The two layers evolve independently.",
+      title: "Organized robot structure",
+      desc: "Subsystems manage hardware while commands control behavior, keeping code easier to understand over time. Very modular and understandable.",
     },
   ];
   return (
     <section className="px-6 py-24 lg:py-32">
       <div className="mx-auto max-w-6xl">
         <SectionHeader
-          eyebrow="Why teams adopt it"
+          eyebrow="Why"
           title={
             <>
-              Six reasons it&rsquo;s worth
-              <span className="block text-fade">the upfront investment.</span>
+              Why teams use
+              <span className="block text-fade">command based programming.</span>
             </>
           }
-          desc="Command-based has a learning curve. Teams that climb it usually don't go back."
+          desc="Command-based programming has a learning curve. Though once you get through it, you usually wont go back."
         />
         <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {items.map((it) => (
@@ -271,31 +270,31 @@ function WhyTeams() {
  * Core concepts
  * ===================================================== */
 function Concepts() {
-  const items = [
+ const items = [
     {
       n: "01",
       title: "Subsystems",
-      desc: "A class that owns a piece of hardware — the drivetrain, an arm, an intake. Exposes a small public API (e.g. setPower, openClaw). Nothing else in your code touches the motors directly.",
+      desc: "Subsystems organize hardware into reusable components. Instead of accessing motors and servos throughout your code, hardware is managed in one place.",
     },
     {
       n: "02",
       title: "Commands",
-      desc: "A short-lived object that asks subsystems to do something. Has an init, an execute, an isFinished, and an end. Commands declare which subsystems they require.",
+      desc: "Commands describe actions your robot can perform, such as intaking, following a path, or scoring a game piece.",
     },
     {
       n: "03",
-      title: "Command groups",
-      desc: "Sequential and parallel composites that let you build long autonomous routines out of small, testable pieces.",
+      title: "Command Groups",
+      desc: "Multiple commands can be combined into larger routines, allowing complex autonomous sequences to be built from simple actions. Like parallel or sequential command groups.",
     },
     {
       n: "04",
-      title: "Triggers & bindings",
-      desc: "Gamepad buttons or sensor conditions that schedule commands. Most teleop input handling becomes one-line bindings.",
+      title: "Triggers",
+      desc: "Triggers connect buttons, sensors, or robot states to commands, making teleop controls easier to organize and maintain.",
     },
     {
       n: "05",
       title: "Scheduler",
-      desc: "The runtime that ticks active commands every loop, enforces subsystem ownership, and resolves conflicts when two commands want the same hardware.",
+      desc: "The scheduler automatically manages active commands and ensures they run in the correct order without conflicting with each other.",
     },
   ];
   return (
@@ -348,31 +347,30 @@ function Concepts() {
  * File layout recommendation
  * ===================================================== */
 function Layout() {
-  const tree = `TeamCode/src/main/java/org/firstinspires/ftc/teamcode/
+const tree = `TeamCode/src/main/java/org/firstinspires/ftc/teamcode/
+├── autos/
+│   └── paths/
+│   │    └── PathsAndPoses.java
+│   └── runnables/
+│       ├── NearAuto.java
+│       └── FarAuto.java
+├── pedroPathing/
 ├── subsystems/
-│   ├── DriveSubsystem.java
-│   ├── IntakeSubsystem.java
-│   ├── ArmSubsystem.java
-│   └── VisionSubsystem.java
-├── commands/
-│   ├── drive/
-│   │   ├── DriveByTime.java
-│   │   ├── FollowPath.java
-│   │   └── AlignToTag.java
-│   ├── arm/
-│   │   └── MoveArmTo.java
-│   └── auto/
-│       └── ScorePreload.java
-├── opmodes/
-│   ├── autonomous/
-│   │   ├── RedNearAuto.java
-│   │   └── BlueFarAuto.java
-│   └── teleop/
-│       └── MainTeleOp.java
+│   ├── IntakeRoller.java
+│   ├── IntakeSpindexerGroup.java
+│   ├── Launcher.java
+│   ├── LauncherGroup.java
+│   ├── LauncherHood.java
+│   ├── Limelight.java
+│   ├── Spindexer.java
+│   └── Turret.java
+├── teleop/
+│   ├── CompTeleOp.java
+│   ├── RedTeleOp.java
+│   └── BlueTeleOp.java
+├── testOpModes/
 ├── util/
-│   ├── Constants.java
-│   └── ControllerMap.java
-└── Robot.java`;
+└── README.md`;
 
   return (
     <section className="px-6 py-24 lg:py-32">
@@ -381,31 +379,15 @@ function Layout() {
           <div className="lg:col-span-5">
             <SectionEyebrow>Recommended layout</SectionEyebrow>
             <h2 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
-              A folder structure
-              <span className="block text-fade">that grows with you.</span>
+              A repo structure
+              <span className="block text-fade">that you decide.</span>
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted">
               There is no &ldquo;correct&rdquo; layout — only one that helps
-              your team find code quickly six months in. Here&rsquo;s a
-              starting point most command-based FTC codebases converge on,
-              with room to adapt as your robot grows.
+              your team develop and optimize your code. Here&rsquo;s a
+              starting point most command-based FTC codebases start on.
+              This is an example from Team 13201 Hazmats DECODE codebase.
             </p>
-            <ul className="mt-8 space-y-3">
-              {[
-                "Subsystems own all hardware references — nothing else.",
-                "Commands describe intent and live next to similar commands.",
-                "Opmodes are thin entry points that compose commands.",
-                "Constants live in one place so tuning doesn't sprawl.",
-              ].map((b) => (
-                <li
-                  key={b}
-                  className="flex items-start gap-2.5 text-sm leading-relaxed text-muted"
-                >
-                  <CheckIcon className="mt-0.5 h-4 w-4 flex-none text-foreground" />
-                  <span>{b}</span>
-                </li>
-              ))}
-            </ul>
           </div>
           <div className="lg:col-span-7">
             <div
@@ -463,68 +445,94 @@ function Skeletons() {
               <span className="block text-fade">and a command look like.</span>
             </>
           }
-          desc="Pseudo-code in the spirit of FTC command-based libraries. Real syntax depends on whether you use FTCLib, NextFTC, or a homegrown implementation."
+          desc="Pseudo-code in the spirit of FTC command-based libraries. Real syntax depends on the library you choose."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-5 lg:grid-cols-2">
           <CodeBlock
-            file="IntakeSubsystem.java"
+            file="Intake.java"
             label="Subsystem"
-            code={`public class IntakeSubsystem extends Subsystem {
-  private final DcMotor motor;
+            code={`public class Intake {
 
-  public IntakeSubsystem(HardwareMap hw) {
-    this.motor = hw.get(DcMotor.class, "intake");
-  }
+    //This is an example using Ivy made by Pedro Pathing
+    private final DcMotorEx intakeMotor;
 
-  public void run(double power) {
-    motor.setPower(power);
-  }
+    public Intake(HardwareMap hardwareMap) {
+        intakeMotor = hardwareMap.get(DcMotorEx.class, "intakeMotor");
+    }
 
-  public void stop() {
-    motor.setPower(0);
-  }
+    public Command intakeForward() {
+        return new InstantCommand(() ->
+                intakeMotor.setPower(1.0)
+        );
+    }
+
+    public Command intakeReverse() {
+        return new InstantCommand(() ->
+                intakeMotor.setPower(-1.0)
+        );
+    }
+
+    public Command intakeOff() {
+        return new InstantCommand(() ->
+                intakeMotor.setPower(0.0)
+        );
+    }
 }`}
           />
           <CodeBlock
-            file="RunIntakeFor.java"
+            file="AutoCommands.java"
             label="Command"
-            code={`public class RunIntakeFor extends Command {
-  private final IntakeSubsystem intake;
-  private final double power, seconds;
-  private double startTime;
+            code={`public class AutoCommands {
 
-  public RunIntakeFor(IntakeSubsystem intake,
-                       double power, double seconds) {
-    this.intake = intake;
-    this.power = power;
-    this.seconds = seconds;
-    addRequirements(intake);
-  }
+    /// This is an example made with NextFTC 1.0
+    public Command intake(PathChain path) {
+        return new ParallelDeadlineGroup(
+                new FollowPath(path, true),
+                new InstantCommand(IntakeRoller::setFor),
+                new WaitUntil(() ->
+                        PedroComponent.follower().getCurrentTValue() >= 0.30
+                ).then(
+                        new InstantCommand(
+                                Launcher.INSTANCE::setLauncherStateIdle
+                        )
+                )
+        );
+    }
 
-  @Override
-  public void initialize() {
-    startTime = time();
-    intake.run(power);
-  }
+    public Command launch(PathChain path, double triggerPoint) {
+        return new ParallelDeadlineGroup(
+                new FollowPath(path, true),
+                new InstantCommand(() ->
+                        Turret.INSTANCE.turretAuto(path.endPose())
+                ),
+                new WaitUntil(() ->
+                        PedroComponent.follower().getCurrentTValue() >= triggerPoint
+                ).then(
+                        LauncherGroup.INSTANCE.closeLaunchForAuto
+                )
+        );
+    }
 
-  @Override
-  public boolean isFinished() {
-    return time() - startTime >= seconds;
-  }
-
-  @Override
-  public void end(boolean interrupted) {
-    intake.stop();
-  }
+    public Command intakeUntilFull(double timeout) {
+        return new ParallelRaceGroup(
+                new Delay(timeout),
+                new SequentialGroup(
+                        new InstantCommand(IntakeRoller::setFor),
+                        new WaitUntil(
+                                SpindexerSensors.INSTANCE::isSpindexerFull
+                        ),
+                        new InstantCommand(IntakeRoller::setOff)
+                )
+        );
+    }
 }`}
           />
         </div>
 
         <p className="mt-6 text-[12.5px] text-subtle">
           Examples are for shape, not for copy-paste. Full working examples
-          and a starter template are{" "}
-          <span className="text-foreground">on the roadmap</span> — see the
+          may be released in the future — see the
           contribute section below if you want to help write them.
         </p>
       </div>
@@ -584,91 +592,31 @@ function CodeBlock({
   );
 }
 
-/* =====================================================
- * Scaling — collaboration & debugging
- * ===================================================== */
-function Scaling() {
-  const items = [
-    {
-      tag: "Collaboration",
-      title: "Two programmers, two subsystems, zero merge conflicts.",
-      desc: "Because each subsystem and command lives in its own file, the days of three students editing the same opmode at 11pm before competition are gone.",
-    },
-    {
-      tag: "Debugging",
-      title: "Localized failure surface.",
-      desc: "When an autonomous fails, you know which command was running. Add telemetry to one command instead of digging through a 600-line opmode.",
-    },
-    {
-      tag: "Iteration",
-      title: "Rewrite behavior without touching hardware.",
-      desc: "Swap a path, retune a movement, or chain commands differently — the subsystem layer doesn't move. The robot keeps working between iterations.",
-    },
-    {
-      tag: "Onboarding",
-      title: "A new programmer can ship a real feature in week one.",
-      desc: "Writing a single command against an existing subsystem is a perfect starter task. They learn the codebase without the cost of touching everything.",
-    },
-  ];
-  return (
-    <section className="px-6 py-24 lg:py-32">
-      <div className="mx-auto max-w-6xl">
-        <SectionHeader
-          eyebrow="Why it scales"
-          title={
-            <>
-              For larger teams and
-              <span className="block text-fade">larger autonomous systems.</span>
-            </>
-          }
-          desc="The pattern pays off most when your team and your codebase get bigger."
-        />
-        <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-2">
-          {items.map((it) => (
-            <div
-              key={it.tag}
-              className="rounded-3xl border p-8"
-              style={{
-                borderColor: "var(--border)",
-                background: "var(--surface)",
-              }}
-            >
-              <span
-                className="rounded-full border px-2.5 py-1 text-[11px] font-medium uppercase tracking-widest text-muted"
-                style={{ borderColor: "var(--border)" }}
-              >
-                {it.tag}
-              </span>
-              <h3 className="mt-6 text-xl font-medium tracking-tight text-foreground sm:text-2xl">
-                {it.title}
-              </h3>
-              <p className="mt-2 text-[14px] leading-relaxed text-muted">
-                {it.desc}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+
 
 /* =====================================================
  * References — community libraries & docs
  * ===================================================== */
 function References() {
   const items = [
-    {
-      tag: "Library",
-      title: "FTCLib",
-      desc: "A community library that brings WPILib-style command-based to FTC. The most common starting point.",
-      href: "https://docs.ftclib.org/ftclib/",
-    },
+    
     {
       tag: "Library",
       title: "NextFTC",
       desc: "A modern command-based framework for FTC with an opinionated, batteries-included API.",
       href: "https://nextftc.dev",
+    },
+    {
+      tag: "Library",
+      title: "Ivy",
+      desc: "A simple, easy to use, and powerful command-based control flow library for FTC",
+      href: "https://pedropathing.com/docs/ivy",
+    },
+    {
+      tag: "Library",
+      title: "SolversLib",
+      desc: "A maintained FTCLib fork that provides command-based architecture and programming tools for FTC teams.",
+      href: "http://docs.seattlesolvers.com/",
     },
     {
       tag: "Reference",
@@ -678,7 +626,7 @@ function References() {
     },
     {
       tag: "Docs",
-      title: "ftc-docs",
+      title: "FTC Docs",
       desc: "Official FTC software documentation — useful baseline before adopting any library.",
       href: "https://ftc-docs.firstinspires.org",
     },
@@ -690,11 +638,11 @@ function References() {
           eyebrow="Community libraries & references"
           title={
             <>
-              We didn&rsquo;t build any of these.
-              <span className="block text-fade">Use them. Credit them.</span>
+              We didn&rsquo;t write any of these.
+              <span className="block text-fade">Support the creators who did..</span>
             </>
           }
-          desc="Command-based exists because of FRC, WPILib, and FTC community library authors. Start here."
+          desc="These libraries exist because of the FTC community."
         />
         <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-2">
           {items.map((it) => (
