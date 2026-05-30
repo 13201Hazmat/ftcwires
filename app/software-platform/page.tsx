@@ -28,15 +28,12 @@ export default function SoftwarePlatformPage() {
         }
         desc={
           <>
-            FTC Wires isn&rsquo;t a FTC Library. We collect and share
-            examples, walkthroughs, and starter templates for the tools FTC
-            teams already use. Like Roadrunner, Pedro Pathing, Blocks, the
-            official FTC SDK, and an Android Studio setup walkthrough.
+            FTC Wires isn&rsquo;t a FTC Library. We have created and share
+            examples and guides for common FTC tools.
           </>
         }
       />
 
-      <Disclosure />
       <Tools />
       <SignUp />
       <ContributeCTA />
@@ -44,42 +41,18 @@ export default function SoftwarePlatformPage() {
   );
 }
 
-/* =====================================================
- * Disclosure — clarity about what this is
- * ===================================================== */
-function Disclosure() {
-  return (
-    <section className="px-6 pb-16 lg:pb-24">
-      <div className="mx-auto max-w-4xl">
-        <div
-          className="flex items-start gap-4 rounded-2xl border p-5 sm:p-6"
-          style={{
-            borderColor: "var(--border)",
-            background:
-              "color-mix(in oklab, var(--foreground) 2.5%, transparent)",
-          }}
-        >
-          <span
-            className="mt-0.5 inline-block h-1.5 w-1.5 flex-none rounded-full"
-            style={{ background: "var(--foreground)" }}
-          />
-          <p className="text-[13.5px] leading-relaxed text-muted">
-            <span className="text-foreground">What this is.</span> A community
-            knowledge base — not a library, SDK, or pathing framework. Every
-            tool below was built by someone else. We point to the official
-            docs, share what worked for Wisconsin teams, and add starter
-            examples where they help.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* =====================================================
  * Tools — split into Auto Pathing + General Guides
  * ===================================================== */
 type Tool = {
+  name: string;
+  blurb: string;
+  href: string;
+  status: "available" | "soon";
+  upstream?: string;
+};
+type Guides = {
   name: string;
   blurb: string;
   href: string;
@@ -114,7 +87,7 @@ const AUTO_PATHING_TOOLS: Tool[] = [
   },
 ];
 
-const GENERAL_TOOLS: Tool[] = [
+const GENERAL_TOOLS: Guides[] = [
   {
     name: "Android Studio",
     blurb:
@@ -126,7 +99,7 @@ const GENERAL_TOOLS: Tool[] = [
   {
     name: "Command-Based Architecture",
     blurb:
-      "An organization pattern for scalable FTC codebases — subsystems, commands, and a scheduler.",
+      "An organization pattern for FTC we will talk about subsystems, commands, and a scheduler.",
     href: "/command-based",
     status: "available",
     upstream: "WPILib · NextFTC · Ivy",
@@ -139,7 +112,6 @@ function Tools() {
     <section id="tools" className="px-6 py-24 lg:py-32 scroll-mt-32">
       <div className="mx-auto max-w-6xl">
         <SectionHeader
-          eyebrow="By tool"
           title="FTC Guides"
           desc="Each tool below is built and maintained by the wider FTC/FRC community."
         />
@@ -279,16 +251,16 @@ function SignUp() {
             }}
           />
           <div className="relative">
-            <SectionEyebrow>Register · Access</SectionEyebrow>
+            <SectionEyebrow>Register</SectionEyebrow>
             <h2 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
-              Register your team
-              <span className="block text-fade">to access the examples.</span>
+              Fill this form 
+              <span className="block text-fade">to access our auto guides.</span>
             </h2>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-muted">
-              Drop your team number and contact info to get our sample
-              autonomous routines (Blocks and Java), starter code,
-              instructions, and direct support throughout the season. We
-              answer questions and update materials all year.
+              We ask for a team number and contact information to help us track usage, 
+              and other types to data. These guides have an instruction guide
+              for setting up autos, with Blocks and Java (Pedro Pathing and Roadrunner). 
+              We also provide a sample basic auto for your team to adapt to your robot.
             </p>
 
             <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
@@ -319,7 +291,6 @@ function ContributeCTA() {
     <section className="px-6 py-24 lg:py-32">
       <div className="mx-auto max-w-4xl text-center">
         <SectionHeader
-          eyebrow="Contribute"
           title={
             <>
               Wrote something that helped your team?

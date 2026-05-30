@@ -70,7 +70,6 @@ function Channels() {
     <section className="px-6 pb-24">
       <div className="mx-auto max-w-6xl">
         <SectionHeader
-          eyebrow="Get in touch"
           title={
             <>
               Different ways

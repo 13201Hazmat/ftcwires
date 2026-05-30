@@ -119,9 +119,8 @@ function WhatItIs() {
               commands want the same subsystem.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted">
-              The result: hardware lives in one place, behavior lives in
-              another, and your autonomous and teleop end up reading like
-              prose instead of nested {`if`}-statements.
+              The result: cleaner code, reusable actions, and auto
+               routines that are easier to build, test, and improve.
             </p>
           </div>
           <div className="lg:col-span-7">
@@ -602,13 +601,13 @@ function References() {
     {
       tag: "Library",
       title: "NextFTC",
-      desc: "A modern command-based framework for FTC with an opinionated, batteries-included API.",
+      desc: "A framework with simplified hardware setup, controls, and easy to use commands.",
       href: "https://nextftc.dev",
     },
     {
       tag: "Library",
       title: "Ivy",
-      desc: "A simple, easy to use, and powerful command-based control flow library for FTC",
+      desc: "A simple, easy to use, and powerful command-based control flow library for FTC (No hardware abstraction, just commands)",
       href: "https://pedropathing.com/docs/ivy",
     },
     {
@@ -623,12 +622,6 @@ function References() {
       desc: "The canonical conceptual reference. FTC adaptations map cleanly to these ideas.",
       href: "https://docs.wpilib.org/en/stable/docs/software/commandbased/index.html",
     },
-    {
-      tag: "Docs",
-      title: "FTC Docs",
-      desc: "Official FTC software documentation — useful baseline before adopting any library.",
-      href: "https://ftc-docs.firstinspires.org",
-    },
   ];
   return (
     <section id="references" className="px-6 py-24 lg:py-32 scroll-mt-32">
@@ -637,8 +630,7 @@ function References() {
           eyebrow="Community libraries & references"
           title={
             <>
-              We didn&rsquo;t write any of these.
-              <span className="block text-fade">Support the creators who did..</span>
+              <span className="block text-fade">Check out some of the common libraries</span>
             </>
           }
           desc="These libraries exist because of the FTC community."
@@ -700,54 +692,33 @@ function ContributeCTA() {
             className="bg-grid pointer-events-none absolute inset-0 opacity-50"
           />
           <div className="relative">
-            <SectionEyebrow>Coming next</SectionEyebrow>
+            <SectionEyebrow>Video</SectionEyebrow>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
-              Worked examples,
-              <span className="block text-fade">contributed by teams.</span>
+              What Ivy is and How to Structure it  
+              <span className="block text-fade">- a Pedro Pathing video by Davis Luxenburg.</span>
             </h2>
             <p className="mt-5 max-w-2xl text-[14.5px] leading-relaxed text-muted sm:text-base">
-              Planned additions to this page: a full reference subsystem set,
-              a starter command library, an end-to-end autonomous routine
-              walkthrough, and a teleop binding pattern guide. If your team
-              has written something worth sharing, send it in.
+              This is a 30-minute walkthrough of the Ivy library and the basics of
+              commands. Davis will go over how to structure your code the differences between different libraries and more. 
             </p>
 
-            <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2">
-              {[
-                "Reference subsystem",
-                "Auto Command Routines",
-                "Sequential auto walkthrough",
-                "Teleop binding",
-              ].map((it) => (
-                <div
-                  key={it}
-                  className="flex items-center gap-3 rounded-2xl border p-4 text-sm text-muted"
-                  style={{
-                    borderColor: "var(--border)",
-                    background:
-                      "color-mix(in oklab, var(--foreground) 2%, transparent)",
-                  }}
-                >
-                  <span
-                    className="pulse-dot inline-block h-1.5 w-1.5 rounded-full"
-                    style={{ background: "#f59e0b" }}
-                  />
-                  <span>{it}</span>
-                  <span className="ml-auto text-[11px] uppercase tracking-widest text-subtle">
-                    Planned
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-10 flex flex-col items-start justify-start gap-3 sm:flex-row">
-              <PrimaryButton href="/contact">
-                Contribute an example
-                <ArrowRight className="h-4 w-4" />
-              </PrimaryButton>
-              <GhostButton href="/resources#software">
-                Back to Software resources
-              </GhostButton>
+            <div
+              className="mt-10 overflow-hidden rounded-2xl border"
+              style={{
+                borderColor: "var(--border)",
+                boxShadow:
+                  "0 20px 50px -20px rgba(0,0,0,0.45)",
+              }}
+            >
+              <div className="relative aspect-video w-full">
+                <iframe
+                  src="https://www.youtube.com/embed/vTk3mzjlf2k"
+                  title="How Ivy works "
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="absolute inset-0 h-full w-full"
+                />
+              </div>
             </div>
           </div>
         </div>

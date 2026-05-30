@@ -38,7 +38,6 @@ export default function AndroidStudioPage() {
       />
 
       <Overview />
-      <Prerequisites />
       <Steps />
       <WirelessADB />
       <NextSteps />
@@ -102,70 +101,6 @@ function StatChip({ label, value }: { label: string; value: string }) {
   );
 }
 
-/* =====================================================
- * Prerequisites
- * ===================================================== */
-function Prerequisites() {
-  const items: { label: string; desc: string }[] = [
-    {
-      label: "A computer with admin rights",
-      desc: "Windows, macOS, or Linux. You'll need permission to install software and drivers.",
-    },
-    {
-      label: "~10 GB of free disk space",
-      desc: "Android Studio plus the SDK and Gradle cache add up quickly.",
-    },
-    {
-      label: "A stable internet connection",
-      desc: "First-time setup downloads several GB. Avoid metered or restricted school networks if you can.",
-    },
-    {
-      label: "A USB-C cable that supports data",
-      desc: "Many cheap charging cables only carry power. If your computer doesn't detect the Control Hub, the cable is the most common culprit.",
-    },
-    {
-      label: "Your Control Hub (or a Robot Controller phone)",
-      desc: "Powered on, with a working battery. You'll need it for the last few steps.",
-    },
-  ];
-  return (
-    <section className="px-6 pb-24">
-      <div className="mx-auto max-w-6xl">
-        <SectionHeader
-          eyebrow="Before you start"
-          title={
-            <>
-              Prerequisites
-              <span className="block text-fade">to have ready.</span>
-            </>
-          }
-        />
-        <div className="mt-16 grid grid-cols-1 gap-3 md:grid-cols-2">
-          {items.map((it) => (
-            <div
-              key={it.label}
-              className="flex items-start gap-3 rounded-2xl border p-5"
-              style={{
-                borderColor: "var(--border)",
-                background: "var(--surface)",
-              }}
-            >
-              <CheckIcon className="mt-0.5 h-4 w-4 flex-none text-foreground" />
-              <div>
-                <div className="text-[14.5px] font-medium tracking-tight text-foreground">
-                  {it.label}
-                </div>
-                <div className="mt-1 text-[13px] leading-relaxed text-muted">
-                  {it.desc}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* =====================================================
  * Steps — the walkthrough
@@ -189,7 +124,7 @@ const STEPS: StepData[] = [
     n: "01",
     title: "Install Android Studio",
     intro:
-      "Android Studio is Google's official IDE for Android development. It's what every FTC team using Java OpModes uses to build and deploy code.",
+      "Android Studio is Google's official IDE for Android development. It's the most common way to develop and download code for FTC.",
     bullets: [
       <>
         Go to{" "}
@@ -198,54 +133,50 @@ const STEPS: StepData[] = [
         </InlineLink>{" "}
         and click <strong className="text-foreground">Download Android Studio</strong>.
       </>,
-      "Accept the terms and choose your operating system.",
-      "Run the installer with the default Standard install type — it includes everything you need for FTC.",
-      "On first launch, Android Studio downloads the Android SDK components. This takes 10–20 minutes — let it finish before continuing.",
+      "Run the installer with the default Standard install type, for FTC you shouldn't need to customize anything.",
+      "On first launch, Android Studio downloads the Android SDK components. This takes about 10–20 minutes wait for it to finish.",
     ],
     image: "/step1.png",
     imageDesc:
       "Android Studio download page (developer.android.com/studio) with the Download button highlighted.",
-    note:
-      "Don't pick the Custom install option unless you already know exactly which SDK components you need. Standard install is the right call for FTC.",
-  },
+    },
   {
     n: "02",
     title: "Get the FtcRobotController project",
     intro:
-      "The FtcRobotController is the official FTC project — it contains the SDK, sample OpModes, and a TeamCode module where your team's code lives. There are two ways to get it. Pick the one that fits your team.",
+      "The FtcRobotController is the official FTC project, it contains the SDK, sample OpModes, and a TeamCode module where your team's code lives. There are two ways to get it. Pick the one that fits your team.",
     content: (
       <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
         <PathOption
           tag="Quick"
           title="Download the project as a ZIP"
-          desc="No git knowledge needed. Good for rookies who just want to start writing code today."
+          desc="No git knowledge needed. Good if you just want to start writing code today. Not recommended for long term use."
           bullets={[
             <>
               Open the{" "}
-              <InlineLink href="https://github.com/FIRST-Tech-Challenge/FtcRobotController/releases">
-                FtcRobotController Releases page
+              <InlineLink href="https://github.com/FIRST-Tech-Challenge/FtcRobotController">
+                FtcRobotController Github repo
               </InlineLink>
               .
             </>,
-            "Find the latest release at the top.",
-            "Under Assets, download Source code (zip).",
-            "Extract the ZIP to a safe location — e.g. Documents/FtcRobotController.",
+            "Under Code, download the ZIP file.",
+            "Extract the ZIP to a location you can find later.",
           ]}
           cta={{
             label: "Open GitHub Releases",
-            href: "https://github.com/FIRST-Tech-Challenge/FtcRobotController/releases",
+            href: "https://github.com/FIRST-Tech-Challenge/FtcRobotController",
             external: true,
           }}
         />
         <PathOption
           tag="Recommended"
           title="Set up Git first"
-          desc="A short detour to install git, fork the repo, and clone it. Worth it for any team that wants version control, branches, or to collaborate without overwriting each other."
+          desc="A short extra step to install git, fork the repo, and clone it. Very helpful for any team that wants version control, branches, or to collaborate. This is highly recommended."
           bullets={[
             "Create a GitHub account.",
             "Install git on your computer.",
             "Fork and clone the FtcRobotController.",
-            "Come back here at Step 3 — your project will already be downloaded.",
+            "Come back here at Step 4 — your project will already be downloaded.",
           ]}
           cta={{
             label: "Open the Git Setup guide",
@@ -257,7 +188,7 @@ const STEPS: StepData[] = [
     ),
     image: "/step2.png",
     imageDesc:
-      "Either: the GitHub Releases page with Source code (zip) highlighted, or the GitHub Fork button highlighted on the FtcRobotController repo.",
+      "The GitHub Repo page with zip highlighted and the GitHub Fork button highlighted on the FtcRobotController repo.",
     note:
       "Whichever path you take, don't put the project inside OneDrive, iCloud Drive, Dropbox, or Google Drive folders. Cloud sync interferes with Gradle's file watching and can corrupt the build cache.",
   },
@@ -268,42 +199,42 @@ const STEPS: StepData[] = [
       "First time you open a project, Android Studio scans the files and prepares the build system.",
     bullets: [
       "Launch Android Studio.",
-      "On the welcome screen click Open, or use File → Open from inside the IDE.",
+      "On the welcome screen click Open",
       "Navigate to your extracted FtcRobotController folder.",
-      "Select the root folder (the one containing build.gradle) and click OK.",
-      "If asked, click Trust Project.",
+      "Select the folder",
+      "You can also click Trust Project.",
     ],
     image: "/step3.png",
     imageDesc:
-      "Android Studio welcome screen with Open highlighted, then the file picker showing the FtcRobotController folder selected.",
+      "Android Studio welcome screen with Open highlighted.",
     note:
-      "Make sure you select the root FtcRobotController folder — not a subfolder like TeamCode or FtcRobotController/FtcRobotController. The root is the one with build.gradle and settings.gradle at the top level.",
+      "Make sure you select the root FtcRobotController folder — not a subfolder like TeamCode or FtcRobotController/FtcRobotController.",
   },
   {
     n: "04",
     title: "Open the Project, and let Gradle sync finish",
     intro:
-      "Gradle is the build system. The first time you open the project, it downloads every dependency the FTC SDK needs. Only takes long the first time — later syncs are fast.",
+      "Gradle is the build system. The first time you open the project, it downloads every dependency the FTC SDK needs. Only takes long the first time.",
     bullets: [
-      "Watch the bottom status bar. You'll see Gradle: Resolving dependencies… and a progress bar.",
+      "A progres bar will start at the bottom.",
       "When the bar says Gradle sync finished, you're ready.",
       "Finally after it is done syncing hit the hammer to build the project (Not downloading yet)",
     ],
     imageDesc:
       "Bottom-of-IDE status bar showing Gradle sync progress, then the Gradle sync finished message.",
     note:
-      "First sync can look like its stuck butit's not. Let it run for at least 20 minutes before thinking something's wrong.",
+      "First sync can look like its stuck but it's not. Let it run for at least 20 minutes before thinking something's wrong.",
   },
   {
     n: "05",
     title: "Connect your Control Hub via USB",
     intro:
-      "You deploy code by plugging your Control Hub directly into your computer with a USB-C cable or wireless connection.",
+      "You deploy code by plugging your Control Hub directly into your computer with a USB-C cable or wireless adb connection.",
     bullets: [
       "Make sure the Control Hub is powered on with a charged battery.",
-      "Connect a data-capable USB-C cable from your computer to the Control Hub.",
+      "Connect a data-capable USB-C cable from your computer to the Control Hub (NOT A CHARGING ONLY CABLE).",
       "On Windows, wait for the Device installed successfully notification.",
-      "In Android Studio's top toolbar, the device dropdown should now show your Control Hub.",
+      "In Android Studio's top toolbar, the device dropdown should now show your Control Hub. If not just click on it and select the Control Hub from the list.",
     ],
     imageDesc:
       "Android Studio top toolbar with the device dropdown open, showing the connected Control Hub selected.",
@@ -318,12 +249,12 @@ const STEPS: StepData[] = [
     bullets: [
       "In the run-configuration dropdown next to the Run button, make sure TeamCode is selected.",
       "Click the green Run button (or press Shift + F10 on Windows / Ctrl + R on Mac).",
-      "When it finishes you'll see BUILD SUCCESSFUL ",
+      "When it finishes you'll see BUILD SUCCESSFUL, this means your code is on the robot ",
     ],
     imageDesc:
       "Run button location in the top toolbar, plus the Build panel at the bottom showing BUILD SUCCESSFUL.",
     note:
-      "If the build fails, scroll up in the Build panel and look for the first red line. That's the actual cause — everything below it is usually noise.",
+      "If the build fails, scroll up in the Build panel and look for the first red line. That's the actual cause.",
   },
   {
     n: "07",
@@ -346,11 +277,11 @@ function Steps() {
           eyebrow="The walkthrough"
           title={
             <>
-              Seven steps,
-              <span className="block text-fade">to help make setup easy.</span>
+              Set Up
+              <span className="block text-fade">Android Studio.</span>
             </>
           }
-          desc="Work through them in order. Each step has a time estimate and a screenshot placeholder we'll fill in."
+          desc="Follow these steps in order to setup Android Studio."
         />
 
         <div
@@ -878,7 +809,7 @@ function SlothRecommend() {
         src="/dairyLogo.png"
         alt=""
         aria-hidden
-        className="pointer-events-none absolute right-6 top-6 z-10 h-14 w-14 rounded-xl opacity-90 transition-opacity duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute right-5 top-5 z-10 h-20 w-20 rounded-xl opacity-90 transition-opacity duration-300 group-hover:opacity-100"
       />
 
       <span
@@ -910,7 +841,7 @@ function SlothRecommend() {
         </p>
       </div>
       <span
-        className="inline-flex items-center gap-1.5 self-start rounded-full border px-3 py-2 text-[12.5px] font-medium text-foreground transition-transform group-hover:translate-x-0.5 sm:self-center"
+        className="inline-flex items-center gap-1.5 self-start rounded-full border px-3 py-2 text-[12.5px] font-medium text-foreground transition-transform group-hover:translate-x-0.5 sm:self-end"
         style={{
           borderColor: "var(--border-strong)",
           background:
@@ -1046,12 +977,11 @@ function NextSteps() {
           <div className="relative">
             <SectionEyebrow>What to read next</SectionEyebrow>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
-              You&rsquo;ve got a working build.
-              <span className="block text-fade">Now what?</span>
+              You&rsquo;ve got a working repo!
+              <span className="block text-fade">Now how can you use it and get better.</span>
             </h2>
             <p className="mt-5 max-w-xl text-[14.5px] leading-relaxed text-muted sm:text-base">
-              The hard part&rsquo;s over. Here&rsquo;s where to go next
-              depending on what your team wants to tackle.
+              Heres an idea of what to read next, you can learn about command-based architecture or browse the software guides to get better at programming your robot.
             </p>
             <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row">
               <PrimaryButton href="/command-based">

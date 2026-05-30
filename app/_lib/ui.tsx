@@ -112,7 +112,7 @@ export function SectionHeader({
   desc,
   align = "center",
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   title: React.ReactNode;
   desc?: React.ReactNode;
   align?: "center" | "left";
@@ -124,8 +124,10 @@ export function SectionHeader({
         isCenter ? "mx-auto max-w-3xl text-center" : "max-w-2xl"
       }
     >
-      <SectionEyebrow center={isCenter}>{eyebrow}</SectionEyebrow>
-      <h2 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl">
+      {eyebrow ? (
+        <SectionEyebrow center={isCenter}>{eyebrow}</SectionEyebrow>
+      ) : null}
+      <h2 className={`text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl ${eyebrow ? "mt-4" : ""}`}>
         {title}
       </h2>
       {desc ? (

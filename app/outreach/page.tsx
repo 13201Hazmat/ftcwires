@@ -520,7 +520,6 @@ function Tips() {
     <section className="px-6 pb-32">
       <div className="mx-auto max-w-6xl">
         <SectionHeader
-          eyebrow="General tips"
           title={
             <>
               What works across
@@ -561,7 +560,6 @@ function SubmitCTA() {
     <section className="px-6 pb-32">
       <div className="mx-auto max-w-4xl text-center">
         <SectionHeader
-          eyebrow="Share back"
           title={
             <>
               Run a great event?
