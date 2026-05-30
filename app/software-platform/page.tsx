@@ -116,29 +116,22 @@ const AUTO_PATHING_TOOLS: Tool[] = [
 
 const GENERAL_TOOLS: Tool[] = [
   {
+    name: "Android Studio",
+    blurb:
+      "A step-by-step walkthrough of the official IDE for FTC. Install, configure the FtcRobotController project, and deploy your first build to a Control Hub.",
+    href: "/android-studio",
+    status: "available",
+    upstream: "Official FTC SDK · Android Studio",
+  },
+  {
     name: "Command-Based Architecture",
     blurb:
       "An organization pattern for scalable FTC codebases — subsystems, commands, and a scheduler.",
     href: "/command-based",
     status: "available",
-    upstream: "WPILib · FTCLib · NextFTC",
+    upstream: "WPILib · NextFTC · Ivy",
   },
-  {
-    name: "FTC SDK",
-    blurb:
-      "The official Java SDK. Reference samples, common patterns, and links into the canonical docs.",
-    href: "#tools",
-    status: "soon",
-    upstream: "FIRST-Tech-Challenge/FtcRobotController",
-  },
-  {
-    name: "Android Studio",
-    blurb:
-      "A step-by-step walkthrough of the official IDE for FTC. Install, configure the FtcRobotController project, and deploy your first build to a Control Hub.",
-    href: "#tools",
-    status: "soon",
-    upstream: "Official FTC SDK · Android Studio",
-  },
+  
 ];
 
 function Tools() {
