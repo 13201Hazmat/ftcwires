@@ -125,7 +125,7 @@ export default function RegisterForm() {
           required
           value={location}
           onChange={(e) => setLocation(e.target.value)}
-          placeholder="Madison, WI, USA"
+          placeholder="Milwaukee, WI, USA"
           className="w-full rounded-xl border bg-transparent px-4 py-3 text-sm text-foreground outline-none placeholder:text-subtle transition-colors focus:border-foreground/40"
           style={{ borderColor: "var(--border)" }}
         />

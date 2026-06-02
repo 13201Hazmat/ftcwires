@@ -51,11 +51,54 @@ export default function PedroPathingPage() {
 
       <WhatItIs />
       <WhyTeams />
+      <VideoSection />
       <SignUp />
       <OfficialResources />
     </>
   );
 }
+
+/* =====================================================
+ * Video
+ * ===================================================== */
+function VideoSection() {
+  return (
+    <section className="px-6 py-24 lg:py-32">
+      <div className="mx-auto max-w-5xl">
+        <SectionHeader
+          eyebrow="Watch"
+          title={
+            <>
+              Pedro Pathing
+              <span className="block text-fade">example auto</span>
+            </>
+          }
+          desc="A video of what our example auto does"
+        />
+
+        <div
+          className="mt-12 overflow-hidden rounded-2xl border"
+          style={{
+            borderColor: "var(--border)",
+            boxShadow: "0 20px 50px -20px rgba(0,0,0,0.45)",
+          }}
+        >
+          <div className="relative aspect-video w-full">
+            <video
+              src="/java.mov"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 h-full w-full"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 
 
 

@@ -65,8 +65,8 @@ const AUTO_PATHING_TOOLS: Tool[] = [
     name: "Blocks",
     blurb:
       "FTC's drag-and-drop programming interface. We share sample block autonomous routines that rookie teams can adapt for their own bots — no Java required.",
-    href: "#tools",
-    status: "soon",
+    href: "/blocks",
+    status: "available",
     upstream: "Official FTC Blocks",
   },
   {

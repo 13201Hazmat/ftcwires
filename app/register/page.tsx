@@ -4,7 +4,7 @@ import { SectionEyebrow } from "../_lib/ui";
 export const metadata = {
   title: "Register — FTC Wires",
   description:
-    "Register your team to access FTC Wires auto guides and software platform resources.",
+    "Register your team to access FTC Wires software platform instructions and software platform resources.",
 };
 
 export default function RegisterPage() {
@@ -29,11 +29,11 @@ export default function RegisterPage() {
           <SectionEyebrow center>Register</SectionEyebrow>
           <h1 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl">
             Get access to
-            <span className="block text-fade">the auto guides.</span>
+            <span className="block text-fade">the software platform instructions.</span>
           </h1>
           <p className="mx-auto mt-5 max-w-sm text-base leading-relaxed text-muted">
             Takes about 30 seconds. We use your team number and email to track
-            usage and send you updates when new guides are released.
+            usage and send you updates when new instructions are released.
           </p>
         </div>
 
