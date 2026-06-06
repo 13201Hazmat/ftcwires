@@ -286,11 +286,11 @@ function ContributeCTA() {
         <SectionHeader
           title={
             <>
-              Wrote something that helped your team?
-              <span className="block text-fade">Send it our way.</span>
+              Know about something that helped you?
+              <span className="block text-fade">Write a guide about it!</span>
             </>
           }
-          desc="The library only stays useful if teams keep adding to it. Examples, walkthroughs, tuning notes — anything that saved your team time is worth sharing."
+          desc="The library only stays useful if teams keep adding to it. Examples, walkthroughs, tuning notes etc.."
         />
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <PrimaryButton href="/contact">

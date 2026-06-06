@@ -18,6 +18,10 @@ export const metadata: Metadata = {
   title: "FTC Wires — A modern platform for FTC robotics teams",
   description:
     "FTC W.I.R.E.S. — Wisconsin Initiative Rising to Enable STEM. Software, parts lending, resources, planning, and outreach for FTC teams.",
+  icons: {
+    icon: "/WIRESbg.png",
+    apple: "/WIRESbg.png",
+  },
 };
 
 const themeInit = `

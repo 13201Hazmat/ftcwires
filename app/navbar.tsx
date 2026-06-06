@@ -7,8 +7,8 @@ import { WiresLogo, ArrowRight } from "./_lib/ui";
 
 type SubItem = { label: string; desc: string; href: string };
 type NavItem =
-  | { label: string; href: string }
-  | { label: string; href: string; items: SubItem[] };
+  | { label: string; href: string; disabled?: boolean }
+  | { label: string; href: string; items: SubItem[]; disabled?: boolean };
 
 const NAV: NavItem[] = [
   { label: "Home", href: "/" },
@@ -57,47 +57,27 @@ const NAV: NavItem[] = [
     ]
   },
   {
-    label: "Planning",
-    href: "/planning",
+    label: "Sponsorship",
+    href: "/sponsorship",
     items: [
       {
-        label: "What to do throughout the season",
-        desc: "A week-by-week roadmap from kickoff to worlds.",
-        href: "/planning#season",
+        label: "How to get sponsors",
+        desc: "Practical advice for reaching out to companies and organizations.",
+        href: "/sponsorship#how-to",
       },
       {
-        label: "Tips for Communication & Success",
-        desc: "Run effective standups, retros, and reviews.",
-        href: "/planning#communication",
+        label: "Grants & discounts",
+        desc: "Wisconsin grants, vendor discounts, and corporate programs.",
+        href: "/sponsorship#grants",
       },
       {
-        label: "Sponsorship",
-        desc: "Templates and outreach scripts that land.",
-        href: "/planning#sponsorship",
+        label: "Sponsorship letter",
+        desc: "A draft letter you can adapt for your team.",
+        href: "/sponsorship#letter",
       },
     ],
   },
-  {
-    label: "Outreach",
-    href: "/outreach",
-    items: [
-      {
-        label: "Ideas",
-        desc: "Proven events that grow your local STEM scene.",
-        href: "/outreach#ideas",
-      },
-      {
-        label: "Where to Start",
-        desc: "A first-month plan for new outreach leads.",
-        href: "/outreach#where-to-start",
-      },
-      {
-        label: "Sponsorships",
-        desc: "Find, pitch, and steward long-term partners.",
-        href: "/outreach#sponsorships",
-      },
-    ],
-  },
+  { label: "Outreach", href: "#", disabled: true },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -175,7 +155,14 @@ export default function Navbar() {
             const active = isActive(item.href);
             return (
               <li key={item.label} className="relative">
-                {isMenu ? (
+                {item.disabled ? (
+                  <span
+                    className="inline-block rounded-full px-3.5 py-1.5 text-[13px] cursor-not-allowed opacity-35 select-none"
+                    style={{ color: "var(--muted)" }}
+                  >
+                    {item.label}
+                  </span>
+                ) : isMenu ? (
                   <span className="flex items-center">
                     <Link
                       href={item.href}
@@ -226,7 +213,7 @@ export default function Navbar() {
                   </Link>
                 )}
 
-                {isMenu && (
+                {!item.disabled && isMenu && (
                   <div
                     className={`absolute left-1/2 top-full mt-3 -translate-x-1/2 transition-all duration-200 ${
                       isOpen
