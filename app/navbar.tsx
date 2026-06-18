@@ -288,7 +288,7 @@ export default function Navbar() {
         }}
       >
         <ul className="flex flex-col">
-          {NAV.map((item) =>
+          {NAV.filter((item) => !item.disabled).map((item) =>
             "items" in item ? (
               <li key={item.label} className="py-1">
                 <Link

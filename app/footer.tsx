@@ -3,11 +3,13 @@ import { WiresLogo } from "./_lib/ui";
 
 const COLS: { title: string; links: [string, string][] }[] = [
   {
-    title: "Platform",
+    title: "Software Platform",
     links: [
-      ["Software Platform", "/software-platform"],
-      ["Parts Lending Network", "/parts-lending-network"],
-      ["Contact", "/contact"],
+      ["Blocks", "/blocks"],
+      ["Roadrunner", "/roadrunner"],
+      ["Pedro Pathing", "/pedro-pathing"],
+      ["Command-Based", "/command-based"],
+      ["Android Studio", "/android-studio"],
     ],
   },
   {
@@ -19,23 +21,21 @@ const COLS: { title: string; links: [string, string][] }[] = [
       ["Hardware", "/resources#hardware"],
       ["Software", "/resources#software"],
       ["Game Strategy", "/resources#game-strategy"],
-      ["Command-Based", "/command-based"],
     ],
   },
   {
-    title: "Planning",
+    title: "Sponsorship",
     links: [
-      ["Season Roadmap", "/planning#season"],
-      ["Communication", "/planning#communication"],
-      ["Sponsorship", "/planning#sponsorship"],
+      ["How to get sponsors", "/sponsorship#how-to"],
+      ["Grants & discounts", "/sponsorship#grants"],
+      ["Sponsorship letter", "/sponsorship#letter"],
     ],
   },
   {
-    title: "Outreach",
+    title: "More",
     links: [
-      ["Ideas", "/outreach#ideas"],
-      ["Where to Start", "/outreach#where-to-start"],
-      ["Sponsorships", "/outreach#sponsorships"],
+      ["Contact", "/contact"],
+      ["Register", "/register"],
     ],
   },
 ];
