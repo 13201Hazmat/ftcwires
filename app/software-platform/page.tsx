@@ -27,7 +27,7 @@ export default function SoftwarePlatformPage() {
         }
         desc={
           <>
-            FTC Wires isn&rsquo;t a FTC Library. We have created and share
+            We have created and share
             examples and guides for common FTC tools.
           </>
         }
@@ -177,13 +177,7 @@ function ToolCard({ tool }: { tool: Tool }) {
         minHeight: 240,
       }}
     >
-      <div className="mb-10 flex items-center justify-between">
-        <span
-          className="rounded-full border px-2.5 py-1 text-[11px] font-medium uppercase tracking-widest text-muted"
-          style={{ borderColor: "var(--border)" }}
-        >
-          Tool
-        </span>
+      <div className="mb-10 flex items-center justify-end">
         {tool.status === "soon" ? (
           <span className="inline-flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-widest text-amber-400">
             <span
@@ -202,11 +196,6 @@ function ToolCard({ tool }: { tool: Tool }) {
       <p className="mt-2 text-[13.5px] leading-relaxed text-muted">
         {tool.blurb}
       </p>
-      {tool.upstream ? (
-        <p className="mt-6 text-[11px] uppercase tracking-widest text-subtle">
-          {tool.upstream}
-        </p>
-      ) : null}
       <div
         className="pointer-events-none absolute inset-x-0 bottom-0 h-px opacity-60"
         style={{
@@ -297,9 +286,6 @@ function ContributeCTA() {
             Share what worked
             <ArrowRight className="h-4 w-4" />
           </PrimaryButton>
-          <GhostButton href="/command-based">
-            Read the architecture guide
-          </GhostButton>
         </div>
       </div>
     </section>

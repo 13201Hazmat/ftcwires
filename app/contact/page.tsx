@@ -38,7 +38,7 @@ export default function ContactPage() {
       />
 
       <Channels />
-      <FAQ />
+      <Contributors />
     </>
   );
 }
@@ -62,6 +62,12 @@ function Channels() {
       label: "Follow us for updates",
       desc: "Stay in the loop with the latest news and announcements.",
       href: "https://www.instagram.com/team13201hazmat/",
+    },
+    {
+      tag: "GitHub",
+      label: "Github Repo",
+      desc: "Our github repo for WIRES, if you do want to contribute please fork and submit a PR!",
+      href: "https://github.com/13201Hazmat/ftcwires",
     }
   ];
 
@@ -88,13 +94,7 @@ function Channels() {
               }}
             >
               <div className="flex-1">
-                <span
-                  className="rounded-full border px-2.5 py-1 text-[11px] font-medium uppercase tracking-widest text-muted"
-                  style={{ borderColor: "var(--border)" }}
-                >
-                  {it.tag}
-                </span>
-                <div className="mt-6 text-xl font-medium tracking-tight text-foreground">
+                <div className="text-xl font-medium tracking-tight text-foreground">
                   {it.label}
                 </div>
                 <div className="mt-2 text-[13.5px] leading-relaxed text-muted">
@@ -110,50 +110,55 @@ function Channels() {
   );
 }
 
-function FAQ() {
-  const items = [
-    {
-      q: "Do we have to be a Wisconsin team to use FTC Wires?",
-      a: "Some resources and the Parts Lending Network are Wisconsin only, but our software guides and other resources are useful for any FTC team.",
-    },
-    {
-      q: "How can our team contribute?",
-      a: "Submit a guide, list hardware for the lending pool, share any resources! Email us, everything is helpful!",
-    },
+function Contributors() {
+  const people = [
+    { username: "28shettr",       name: "Rohit Shetty",    role: "Team 13201 Hazmat" },
+    { username: "amjadj",         name: "Amjad Jabbar",    role: "Hazmat Coach" },
+    { username: "Aaditya-Tiwari", name: "Aaditya Tiwari",  role: "Hazmat Alumni" },
+    { username: "28thakus",       name: "Shaurya Thakur",  role: "Team 13201 Hazmat" },
+    { username: "FrontEndLol",    name: "Manyeh Luthra",   role: "Team 13201 Hazmat" },
   ];
+
   return (
-    <section className="px-6 pb-32">
-      <div className="mx-auto max-w-3xl">
+    <section className="px-6 pb-24">
+      <div className="mx-auto max-w-6xl">
         <SectionHeader
-          title={<>Some questions.</>}
+          title={
+            <>
+              Contributors
+              <span className="block text-fade">who helped create WIRES</span>
+            </>
+          }
         />
-        <ul
-          className="mt-12 overflow-hidden rounded-3xl border"
-          style={{
-            borderColor: "var(--border)",
-            background: "var(--surface)",
-          }}
-        >
-          {items.map((it, i) => (
-            <li
-              key={it.q}
-              className="px-6 py-7 sm:px-8"
-              style={
-                i !== 0
-                  ? { borderTop: "1px solid var(--hairline)" }
-                  : undefined
-              }
+        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+          {people.map((p) => (
+            <a
+              key={p.username}
+              href={`https://github.com/${p.username}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-3 overflow-hidden rounded-2xl border p-4 transition-all duration-200 hover:-translate-y-0.5"
+              style={{ borderColor: "var(--border)", background: "var(--surface)" }}
             >
-              <div className="text-[15px] font-medium text-foreground">
-                {it.q}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`https://github.com/${p.username}.png`}
+                alt={p.name}
+                className="h-10 w-10 flex-none rounded-full object-cover"
+              />
+              <div className="min-w-0">
+                <p className="truncate text-[13.5px] font-medium text-foreground">
+                  {p.name}
+                </p>
+                <p className="truncate text-[11.5px] text-muted">
+                  {p.role}
+                </p>
               </div>
-              <p className="mt-2 text-[14px] leading-relaxed text-muted">
-                {it.a}
-              </p>
-            </li>
+            </a>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );
 }
+

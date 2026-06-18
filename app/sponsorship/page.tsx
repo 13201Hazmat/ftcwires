@@ -289,7 +289,7 @@ function Grants() {
               <span className="block text-fade">by category.</span>
             </>
           }
-          desc="Sorted by source. Amounts and deadlines change season to season — always verify before applying."
+          desc="A sorted list of diffrent grant available you should start applying as soon as possible."
         />
 
         <div className="mt-16 flex flex-col gap-16">
@@ -303,16 +303,8 @@ function Grants() {
                     className="flex flex-col gap-3 rounded-3xl border p-7"
                     style={{ borderColor: "var(--border)", background: "var(--surface)" }}
                   >
-                    <div className="flex items-start justify-between gap-4">
+                    <div>
                       <h3 className="text-base font-medium tracking-tight text-foreground leading-snug">{g.name}</h3>
-                      {g.amount && (
-                        <span
-                          className="flex-none rounded-full border px-2.5 py-1 text-[11px] font-medium tracking-wide text-muted"
-                          style={{ borderColor: "var(--border)" }}
-                        >
-                          {g.amount}
-                        </span>
-                      )}
                     </div>
                     <p className="text-[13px] leading-relaxed text-muted">{g.desc}</p>
                     {g.links.length > 0 && (

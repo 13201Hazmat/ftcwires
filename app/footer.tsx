@@ -86,26 +86,6 @@ export default function Footer() {
           ))}
         </div>
 
-        <div
-          className="mt-16 flex flex-col items-start justify-between gap-4 border-t pt-8 sm:flex-row sm:items-center"
-          style={{ borderColor: "var(--border)" }}
-        >
-          <p className="text-xs text-subtle">
-            © {new Date().getFullYear()} FTC W.I.R.E.S. Independent FTC
-            community initiative — not affiliated with FIRST.
-          </p>
-          <div className="flex items-center gap-6 text-xs text-subtle">
-            <Link href="/" className="hover:text-foreground">
-              Privacy
-            </Link>
-            <Link href="/" className="hover:text-foreground">
-              Terms
-            </Link>
-            <Link href="/contact" className="hover:text-foreground">
-              Contact
-            </Link>
-          </div>
-        </div>
       </div>
     </footer>
   );

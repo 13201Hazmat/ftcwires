@@ -360,7 +360,6 @@ function Step({ step, isFirst }: { step: StepData; isFirst: boolean }) {
             <ImagePlaceholder description={step.imageDesc} />
           )}
 
-          {step.note ? <NoteBox>{step.note}</NoteBox> : null}
         </div>
       </div>
     </article>
@@ -800,54 +799,18 @@ function SlothRecommend() {
           "0 1px 0 color-mix(in oklab, var(--foreground) 4%, transparent) inset",
       }}
     >
-      {/* dairy-foundation logo — top-right watermark */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/dairyLogo.png"
-        alt=""
-        aria-hidden
-        className="pointer-events-none absolute right-5 top-5 z-10 h-20 w-20 rounded-xl opacity-90 transition-opacity duration-300 group-hover:opacity-100"
-      />
-
-      <span
-        className="grid h-11 w-11 flex-none place-items-center rounded-xl"
-        style={{
-          background:
-            "color-mix(in oklab, var(--foreground) 6%, transparent)",
-        }}
-      >
-        <BoltIcon className="h-5 w-5 text-foreground" />
-      </span>
-      <div className="flex-1">
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] font-medium uppercase tracking-widest text-subtle">
-          <span
-            className="rounded-full border px-2.5 py-1 text-foreground"
-            style={{ borderColor: "var(--border)" }}
-          >
-            Bonus · Optional
-          </span>
-          <span>by dairy-foundation</span>
-        </div>
-        <h3 className="mt-3 text-lg font-medium tracking-tight text-foreground sm:text-xl">
-          Want even faster downloads? Try Sloth for sub-second deploys.
+<div className="flex-1">
+        <p className="text-[11px] font-medium uppercase tracking-widest text-subtle">
+          Optional · by dairy-foundation
+        </p>
+        <h3 className="mt-2 text-lg font-medium tracking-tight text-foreground sm:text-xl">
+          Sloth — sub-second deploys
         </h3>
         <p className="mt-1.5 text-[13.5px] leading-relaxed text-muted">
-          A hot-reload Gradle plugin for FTC that pushes TeamCode changes in
-          under a second. Instead of installing a full APK, Sloth only pushes the changed classes and resources.
-           It works with both USB and wireless ADB.
+          A Gradle plugin that pushes only changed TeamCode classes instead of reinstalling the full APK. Works over USB and wireless ADB.
         </p>
       </div>
-      <span
-        className="inline-flex items-center gap-1.5 self-start rounded-full border px-3 py-2 text-[12.5px] font-medium text-foreground transition-transform group-hover:translate-x-0.5 sm:self-end"
-        style={{
-          borderColor: "var(--border-strong)",
-          background:
-            "color-mix(in oklab, var(--foreground) 3%, transparent)",
-        }}
-      >
-        See on GitHub
-        <ArrowUpRight className="h-3.5 w-3.5" />
-      </span>
+      <ArrowUpRight className="h-4 w-4 flex-none text-subtle transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
     </a>
   );
 }
@@ -956,41 +919,15 @@ function DocIcon({ className = "" }: { className?: string }) {
  * ===================================================== */
 function NextSteps() {
   return (
-    <section className="px-6 py-24 lg:py-32">
-      <div className="mx-auto max-w-5xl">
-        <div
-          className="relative overflow-hidden rounded-[2rem] border p-10 sm:p-16"
-          style={{
-            borderColor: "var(--border)",
-            background:
-              "linear-gradient(180deg, color-mix(in oklab, var(--foreground) 5%, var(--surface)), var(--surface))",
-            boxShadow: "0 24px 60px -24px rgba(0,0,0,0.45)",
-          }}
-        >
-          <div
-            aria-hidden
-            className="bg-grid pointer-events-none absolute inset-0 opacity-50"
-          />
-          <div className="relative">
-            <SectionEyebrow>What to read next</SectionEyebrow>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
-              You&rsquo;ve got a working repo!
-              <span className="block text-fade">Now how can you use it and get better.</span>
-            </h2>
-            <p className="mt-5 max-w-xl text-[14.5px] leading-relaxed text-muted sm:text-base">
-              Heres an idea of what to read next, you can learn about command-based architecture or browse the software guides to get better at programming your robot.
-            </p>
-            <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row">
-              <PrimaryButton href="/command-based">
-                Learn command-based architecture
-                <ArrowRight className="h-4 w-4" />
-              </PrimaryButton>
-              <GhostButton href="/software-platform">
-                Browse software guides
-              </GhostButton>
-            </div>
-          </div>
-        </div>
+    <section className="px-6 pb-24 lg:pb-32">
+      <div className="mx-auto max-w-5xl flex flex-col items-start gap-3 sm:flex-row">
+        <PrimaryButton href="/command-based">
+          Learn command-based architecture
+          <ArrowRight className="h-4 w-4" />
+        </PrimaryButton>
+        <GhostButton href="/software-platform">
+          Browse software guides
+        </GhostButton>
       </div>
     </section>
   );

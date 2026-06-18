@@ -109,7 +109,11 @@ const CATEGORIES: ResourceCategory[] = [
         desc: "One of the best community-made guides for learning FTC hardware, software, and strategy.",
         href: "https://gm0.org/en/latest/",
       },
-      
+      {
+        label: "Index 47",
+        desc: "A community-built FTC reference hub for acronyms, libraries, tools, and resources.",
+        href: "https://index47.org/",
+      },
       {
         label: "FTC SIM",
         desc: "A browser-based FTC simulator for practicing programming and robot control concepts.",
@@ -212,6 +216,11 @@ const CATEGORIES: ResourceCategory[] = [
       label: "REV Hardware Client",
       desc: "Firmware updates, device management, and configuration tools for REV hardware.",
       href: "https://docs.revrobotics.com/rev-hardware-client",
+    },
+    {
+      label: "Learn Java for FTC",
+      desc: "A book written for rookies to learn how to use java and for FTC in specific.",
+      href: "https://github.com/alan412/LearnJavaForFTC/blob/master/LearnJavaForFTC.pdf",
     },
     {
       label: "Cookbook",

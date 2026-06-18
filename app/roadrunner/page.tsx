@@ -77,7 +77,7 @@ function WhatItIs() {
             <p>
               You define a trajectory using a builder and Roadrunner handles
               the math. It has a built-in actions system, it also works with libraries
-              like NextFTC, and supports
+              like NextFTC, and supports{" "}
               <span className="text-foreground">mecanum and tank drivetrains</span>.
             </p>
           </div>
@@ -126,7 +126,7 @@ function WhyTeams() {
       desc: "Generates and follows trajectories using a feedforward and feedback control. Includes a code-based path visualizer to preview paths before running them.",
     },
     {
-      title: "Tuningis mostly automatic ",
+      title: "Tuning is mostly automatic ",
       desc: "Four of the tuning steps are automatic with two manual ones.",
     },
     {
@@ -249,7 +249,7 @@ function SignUp() {
           <div className="relative">
             <h2 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
               Fill this form
-              <span className="block text-fade">before using the auto guides.</span>
+              <span className="block text-fade">to access the auto guides</span>
             </h2>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-muted">
               We ask for your team number and contact info so we can see which
@@ -301,7 +301,7 @@ function OfficialResources() {
               <span className="block text-fade">the official docs.</span>
             </>
           }
-          desc="learnroadrunner.com is the best place to start. The official docs and community guides fill in the rest."
+          desc="FTC W.I.R.E.S. has created easy guides and example block autos. Though if you want to learn more, check out the official docs."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -315,13 +315,7 @@ function OfficialResources() {
               style={{ borderColor: "var(--border)", background: "var(--surface)" }}
             >
               <div className="flex-1">
-                <span
-                  className="rounded-full border px-2.5 py-1 text-[11px] font-medium uppercase tracking-widest text-muted"
-                  style={{ borderColor: "var(--border)" }}
-                >
-                  {it.tag}
-                </span>
-                <div className="mt-5 text-xl font-medium tracking-tight text-foreground">
+                <div className="text-xl font-medium tracking-tight text-foreground">
                   {it.title}
                 </div>
                 <div className="mt-2 text-[13.5px] leading-relaxed text-muted">

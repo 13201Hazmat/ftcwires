@@ -14,7 +14,6 @@ export default function Home() {
 
       <Stats />
       <Mission />
-      <HomeCTA />
     </>
   );
 }
@@ -49,16 +48,16 @@ function Hero() {
         {/* Title */}
         <h1 className="mt-4 tracking-tight">
           <span className="block text-5xl font-semibold sm:text-6xl lg:text-7xl">FTC W.I.R.E.S.</span>
-          <span className="block mt-2 text-xl font-medium text-fade sm:text-2xl">Wisconsin Initiative Rising to Enable STEM.</span>
+          <span className="block mt-2 text-xl font-medium text-fade sm:text-2xl">Wisconsin Rises to Enable STEM Growth.</span>
         </h1>
 
         {/* Description */}
         <p className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-          A community resource hub led by{" "}
+          A community resource page led by{" "}
           <span className="text-foreground">Team 13201 Hazmat</span>, with
           contributions from teams, mentors, and alumni across Wisconsin.
           Guides, examples, and templates for common FTC tools — so every team
-          can grow faster.
+          can learn.
         </p>
 
         {/* CTAs */}
@@ -67,9 +66,6 @@ function Hero() {
             Browse resources
             <ArrowRight className="h-4 w-4" />
           </PrimaryButton>
-          <GhostButton href="/parts-lending-network" className="w-full sm:w-auto">
-            See what we&rsquo;re building
-          </GhostButton>
         </div>
       </div>
     </section>
@@ -204,29 +200,3 @@ function Mission() {
 /* =====================================================
  * Home CTA
  * ===================================================== */
-function HomeCTA() {
-  return (
-    <section className="px-6 py-24 lg:py-32">
-      <div className="mx-auto max-w-4xl text-center">
-        <SectionHeader
-          title={
-            <>
-              Made for every team in
-              <span className="block text-fade">
-               Wisconsin and the Globe.
-              </span>
-            </>
-          }
-          desc="FTC Wires is an open community project led by Team 13201 Hazmat with contributions from teams, mentors, and alumni across the state."
-        />
-        <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <PrimaryButton href="/contact">
-            Get in touch
-            <ArrowRight className="h-4 w-4" />
-          </PrimaryButton>
-          <GhostButton href="/resources">Browse resources</GhostButton>
-        </div>
-      </div>
-    </section>
-  );
-}

@@ -11,7 +11,7 @@ import {
 export const metadata = {
   title: "Blocks — FTC Wires",
   description:
-    "A quick overview of FTC Blocks, the drag-and-drop programming tool built into the Rev Hardware Client for teams getting started without Java and new to programming.",
+    "A quick overview of FTC Blocks, the drag-and-drop programming tool it's pretty much like Scratch if you ever have used it. It's built into the Rev Hardware Client for teams getting started without Java and new to programming.",
 };
 
 export default function BlocksPage() {
@@ -25,10 +25,7 @@ export default function BlocksPage() {
         }
         desc={
           <>
-            Blocks is FTC&rsquo;s drag-and-drop programming tool, built 
-            into the Rev Hardware Client for teams getting started 
-            without Java and new to programming. It&rsquo;s a starting place
-            for many rookie teams.
+              A quick overview of FTC Blocks, the drag-and-drop programming tool it's pretty much like Scratch if you ever have used it. It's built into the Rev Hardware Client for teams getting started without Java and new to programming.,
           </>
         }
         cta={
@@ -148,15 +145,15 @@ function WhyTeams() {
   const items = [
     {
       title: "No Java required",
-      desc: "New programmers can build working OpModes without learning syntax first. Great for rookie teams and first-time programmers. The concepts you learn in Blocks carry over directly. Many teams start in Blocks and move to OnBot Java or Android Studio later",
+      desc: "New programmers can build working OpModes without learning much syntax. Great for rookie teams and first-time programmers. The logic you learn in Blocks mostly carries over directly. Many teams start in Blocks and move to OnBot Java or Android Studio later",
     },
     {
       title: "One thing to install",
-      desc: "Blocks lives inside the Rev Hardware Client and you can easily download it and use with little setup.",
+      desc: "Blocks are avaible through the Rev Hardware Client and you can easily download and use it.",
     },
     {
       title: "Easy to follow logic",
-      desc: "Loops, conditions, and motor commands are all visual, which makes it easier to see how a program flows and to spot mistakes.",
+      desc: "Loops, conditions, and motor commands are all visual, which makes it easier to see how a logic works. Great for learning how code logic works.",
     },
   ];
 
@@ -238,7 +235,7 @@ function SignUp() {
           <div className="relative">
             <h2 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
               Fill this form
-              <span className="block text-fade">before using the auto guides.</span>
+              <span className="block text-fade">to access the auto guides</span>
             </h2>
 
             <p className="mt-5 max-w-xl text-base leading-relaxed text-muted">
@@ -274,7 +271,7 @@ function OfficialResources() {
     {
       tag: "Tutorial",
       title: "Blocks Programming Tutorial",
-      desc: "The official FTC walkthrough for writing your first OpMode in Blocks.",
+      desc: "The official FTC block docs.",
       href: "https://ftc-docs.firstinspires.org/en/latest/programming_resources/blocks/Blocks-Tutorial.html",
     },
     {
@@ -295,7 +292,7 @@ function OfficialResources() {
               <span className="block text-fade">some resources.</span>
             </>
           }
-          desc="FTC W.I.R.E.S. has created an easy guide and example block autos. For the full reference, check out the official docs."
+          desc="FTC W.I.R.E.S. has created easy guides and example block autos. Though if you want to learn more, check out the official docs."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -312,13 +309,7 @@ function OfficialResources() {
               }}
             >
               <div className="flex-1">
-                <span
-                  className="rounded-full border px-2.5 py-1 text-[11px] font-medium uppercase tracking-widest text-muted"
-                  style={{ borderColor: "var(--border)" }}
-                >
-                  {it.tag}
-                </span>
-                <div className="mt-5 text-xl font-medium tracking-tight text-foreground">
+                <div className="text-xl font-medium tracking-tight text-foreground">
                   {it.title}
                 </div>
                 <div className="mt-2 text-[13.5px] leading-relaxed text-muted">

@@ -50,7 +50,6 @@ export default function CommandBasedPage() {
       <WhatItIs />
       <WhyTeams />
       <Concepts />
-      <Layout />
       <Skeletons />
       <References />
       <ContributeCTA />
@@ -405,10 +404,10 @@ function Skeletons() {
               <span className="block text-fade">and a command look like.</span>
             </>
           }
-          desc="Pseudo-code in the spirit of FTC command-based libraries. Real syntax depends on the library you choose."
+          desc="Some example code made from the DECODE season though each library has it's own structure."
         />
 
-        <div className="mt-16 grid grid-cols-1 gap-5 lg:grid-cols-2">
+        <div className="mt-16 grid grid-cols-1 gap-5 lg:grid-cols-2 lg:items-start">
           <CodeBlock
             file="Intake.java"
             label="Subsystem"
@@ -576,8 +575,8 @@ function References() {
     },
     {
       tag: "Reference",
-      title: "WPILib Command-Based docs",
-      desc: "The canonical conceptual reference. FTC adaptations map cleanly to these ideas.",
+      title: "WPILib Commands",
+      desc: "This is the library that familiarized commands in FRC and many FTC libraries use similair concepts. Definely a good read when learning about commands.",
       href: "https://docs.wpilib.org/en/stable/docs/software/commandbased/index.html",
     },
   ];
@@ -590,7 +589,7 @@ function References() {
               <span className="block text-fade">Check out some of the common libraries</span>
             </>
           }
-          desc="These libraries exist because of the FTC community."
+          desc="I reccomend researching every library and seeing which one actually works best for you and what you want."
         />
         <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-2">
           {items.map((it) => (
@@ -606,13 +605,7 @@ function References() {
               }}
             >
               <div className="flex-1">
-                <span
-                  className="rounded-full border px-2.5 py-1 text-[11px] font-medium uppercase tracking-widest text-muted"
-                  style={{ borderColor: "var(--border)" }}
-                >
-                  {it.tag}
-                </span>
-                <div className="mt-5 text-xl font-medium tracking-tight text-foreground">
+                <div className="text-xl font-medium tracking-tight text-foreground">
                   {it.title}
                 </div>
                 <div className="mt-2 text-[13.5px] leading-relaxed text-muted">
@@ -650,12 +643,12 @@ function ContributeCTA() {
           />
           <div className="relative">
             <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
-              What Ivy is and How to Structure it  
+              What Ivy and Command Based programming looks like  
               <span className="block text-fade">- a Pedro Pathing video by Davis Luxenburg.</span>
             </h2>
             <p className="mt-5 max-w-2xl text-[14.5px] leading-relaxed text-muted sm:text-base">
               This is a 30-minute walkthrough of the Ivy library and the basics of
-              commands. Davis will go over how to structure your code the differences between different libraries and more. 
+              commands. Though it is heavily focused on Ivy most stuff he talks about can transfer to other librariers.
             </p>
 
             <div
