@@ -22,19 +22,6 @@ export default function ContactPage() {
           </>
         }
         desc="Request the software platform, ask questions, or just say hi. We try to answer everything."
-        cta={
-          <>
-          <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=ftcwires@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition hover:opacity-90 sm:w-auto"
-          >
-            Email ftcwires@gmail.com
-            <ArrowRight className="h-4 w-4" />
-          </a>
-          </>
-        }
       />
 
       <Channels />

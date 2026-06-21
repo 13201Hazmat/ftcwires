@@ -24,14 +24,6 @@ export default function SponsorshipPage() {
             A collection of grants, vendor discounts, and corporate programs available to FTC teams;
             some are Wisconsin only though most apply everywhere.
           </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <PrimaryButton href="#grants" className="w-full sm:w-auto">
-              See all grants <ArrowRight className="h-4 w-4" />
-            </PrimaryButton>
-            <GhostButton href="#letter" className="w-full sm:w-auto">
-              Sample letter
-            </GhostButton>
-          </div>
         </div>
       </section>
 
@@ -59,7 +51,7 @@ function HowTo() {
     },
     {
       n: "03",
-      title: "Apply for every grant you qualify for",
+      title: "Apply for every grant you can",
       desc: "Most of the grants below take under an hour to apply for. The FIRST Wisconsin grants, WI DPI matching funds, MSOE, and vendor sponsorships are all worth submitting. Do this as early as possible.",
     },
     {

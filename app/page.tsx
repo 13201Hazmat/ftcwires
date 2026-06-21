@@ -53,10 +53,10 @@ function Hero() {
 
         {/* Description */}
         <p className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-          A community resource page led by{" "}
+          This is a community resource page led by{" "}
           <span className="text-foreground">Team 13201 Hazmat</span>, with
           contributions from teams, mentors, and alumni across Wisconsin.
-          Guides, examples, and templates for common FTC tools — so every team
+          Guides, examples, and templates for common FTC things so every team
           can learn.
         </p>
 
@@ -84,7 +84,7 @@ function Stats() {
           <span className="text-foreground">260+ teams</span>
           <span className="text-fade">
             {" "}
-            are using FTC Wires resources, worldwide, today.
+            are using FTC Wires resources.
           </span>
         </p>
 

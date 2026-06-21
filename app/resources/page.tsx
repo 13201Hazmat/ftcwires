@@ -285,7 +285,7 @@ export default function ResourcesPage() {
             <span className="block text-fade">in one place.</span>
           </>
         }
-        desc="A community-maintained library. Submit what helped your team, use what helps you."
+        desc="This is a community resource library. Let us know what helped you."
         cta={
           <>
             <PrimaryButton href="/contact" className="w-full sm:w-auto">
