@@ -3,22 +3,50 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { WiresLogo, ArrowRight } from "./_lib/ui";
+import { WiresLogo, ArrowRight, SearchIcon } from "./_lib/ui";
+import CommandPalette from "./_lib/CommandPalette";
 
 type SubItem = { label: string; desc: string; href: string };
 type NavItem =
-  | { label: string; href: string; disabled?: boolean }
-  | { label: string; href: string; items: SubItem[]; disabled?: boolean };
+  | { label: string; href: string }
+  | { label: string; href: string; items: SubItem[] };
 
 const NAV: NavItem[] = [
-  { label: "Home", href: "/" },
-  { label: "Software Platform", href: "/software-platform" },
-  { label: "Parts Lending Network", href: "#", disabled: true },
+  {
+    label: "Software Platform",
+    href: "/software-platform",
+    items: [
+      {
+        label: "Blocks",
+        desc: "Visual drag-and-drop programming, no Java required.",
+        href: "/blocks",
+      },
+      {
+        label: "Roadrunner",
+        desc: "Motion-profiled autonomous paths with velocity control.",
+        href: "/roadrunner",
+      },
+      {
+        label: "Pedro Pathing",
+        desc: "Bézier curve path following with predictive braking.",
+        href: "/pedro-pathing",
+      },
+      {
+        label: "Android Studio",
+        desc: "Install the IDE and deploy your first build.",
+        href: "/android-studio",
+      },
+      {
+        label: "Command-Based",
+        desc: "Scalable subsystem/command architecture for Java.",
+        href: "/command-based",
+      },
+    ],
+  },
   {
     label: "Resources",
     href: "/resources",
-    items: 
-    [
+    items: [
       {
         label: "Important Sites",
         desc: "Official FTC links, documentation, and season resources.",
@@ -51,10 +79,10 @@ const NAV: NavItem[] = [
       },
       {
         label: "Game Strategy",
-        desc: "Scouting tools, match analysis resources, and competitive strategy guides.",
+        desc: "Scouting tools, match analysis resources, and competitive strategy.",
         href: "/resources#game-strategy",
       },
-    ]
+    ],
   },
   {
     label: "Sponsorship",
@@ -77,26 +105,29 @@ const NAV: NavItem[] = [
       },
     ],
   },
-  { label: "Outreach", href: "#", disabled: true },
   { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const [paletteOpen, setPaletteOpen] = useState(false);
   const [theme, setTheme] = useState<"light" | "dark">("dark");
   const rootRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
   useEffect(() => {
     const t = localStorage.getItem("ftcw-theme");
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTheme(t === "light" ? "light" : "dark");
   }, []);
 
-  // Close menus on route change.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setOpen(null);
     setMobileOpen(false);
+    setMobileExpanded(null);
   }, [pathname]);
 
   useEffect(() => {
@@ -118,6 +149,17 @@ export default function Navbar() {
     };
   }, []);
 
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        setPaletteOpen((v) => !v);
+      }
+    }
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, []);
+
   function toggleTheme() {
     const next = theme === "dark" ? "light" : "dark";
     setTheme(next);
@@ -130,211 +172,258 @@ export default function Navbar() {
     return pathname === href || pathname.startsWith(href + "/");
   }
 
-  return (
-    <header
-      ref={rootRef}
-      className="fixed inset-x-0 top-4 z-50 flex justify-center px-4"
-    >
-      <nav
-        className="relative flex w-full max-w-6xl items-center justify-between rounded-full border px-2.5 py-2 backdrop-blur-xl transition-colors"
-        style={{
-          background: "var(--surface-glass)",
-          borderColor: "var(--border)",
-          boxShadow:
-            "0 1px 0 0 color-mix(in oklab, var(--foreground) 4%, transparent) inset, 0 12px 32px -16px rgba(0,0,0,0.35)",
-        }}
-      >
-        <Link href="/" className="flex items-center pl-1 pr-3">
-          <WiresLogo size={28} />
-        </Link>
+  function toggleMobileSection(label: string) {
+    setMobileExpanded((prev) => (prev === label ? null : label));
+  }
 
-        <ul className="hidden items-center gap-0.5 lg:flex">
-          {NAV.map((item) => {
-            const isMenu = "items" in item;
-            const isOpen = isMenu && open === item.label;
-            const active = isActive(item.href);
-            return (
-              <li key={item.label} className="relative">
-                {item.disabled ? (
-                  <span
-                    className="inline-block rounded-full px-3.5 py-1.5 text-[13px] cursor-not-allowed opacity-35 select-none"
-                    style={{ color: "var(--muted)" }}
-                  >
-                    {item.label}
-                  </span>
-                ) : isMenu ? (
-                  <span className="flex items-center">
+  return (
+    <>
+      <header
+        ref={rootRef}
+        className="fixed inset-x-0 top-4 z-50 flex justify-center px-4"
+      >
+        <nav
+          className="relative flex w-full max-w-6xl items-center justify-between rounded-full border px-2.5 py-2 backdrop-blur-xl transition-colors"
+          style={{
+            background: "var(--surface-glass)",
+            borderColor: "var(--border)",
+            boxShadow:
+              "0 1px 0 0 color-mix(in oklab, var(--foreground) 4%, transparent) inset, 0 12px 32px -16px rgba(0,0,0,0.35)",
+          }}
+        >
+          <Link href="/" className="flex items-center pl-1 pr-3">
+            <WiresLogo size={28} />
+          </Link>
+
+          <ul className="hidden items-center gap-0.5 lg:flex">
+            {NAV.map((item) => {
+              const isMenu = "items" in item;
+              const isOpen = isMenu && open === item.label;
+              const active = isActive(item.href);
+              return (
+                <li key={item.label} className="relative">
+                  {isMenu ? (
+                    <span className="flex items-center">
+                      <Link
+                        href={item.href}
+                        className="inline-flex items-center gap-1 rounded-full py-1.5 pl-3.5 pr-1 text-[13px] transition-colors hover:text-foreground"
+                        style={{
+                          color: active ? "var(--foreground)" : "var(--muted)",
+                        }}
+                      >
+                        {item.label}
+                      </Link>
+                      <button
+                        onClick={() => setOpen(isOpen ? null : item.label)}
+                        aria-expanded={isOpen}
+                        aria-label={`Open ${item.label} menu`}
+                        className="grid h-7 w-7 place-items-center rounded-full text-muted transition-colors hover:text-foreground"
+                        style={
+                          isOpen
+                            ? {
+                                background:
+                                  "color-mix(in oklab, var(--foreground) 6%, transparent)",
+                                color: "var(--foreground)",
+                              }
+                            : undefined
+                        }
+                      >
+                        <Chevron
+                          className={`h-3 w-3 transition-transform duration-200 ${
+                            isOpen ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
+                    </span>
+                  ) : (
                     <Link
                       href={item.href}
-                      className="inline-flex items-center gap-1 rounded-full py-1.5 pl-3.5 pr-1 text-[13px] transition-colors hover:text-foreground"
+                      className="inline-block rounded-full px-3.5 py-1.5 text-[13px] transition-colors hover:text-foreground"
                       style={{
-                        color: active
-                          ? "var(--foreground)"
-                          : "var(--muted)",
+                        color: active ? "var(--foreground)" : "var(--muted)",
                       }}
                     >
                       {item.label}
                     </Link>
-                    <button
-                      onClick={() =>
-                        setOpen(isOpen ? null : item.label)
-                      }
-                      aria-expanded={isOpen}
-                      aria-label={`Open ${item.label} menu`}
-                      className="grid h-7 w-7 place-items-center rounded-full text-muted transition-colors hover:text-foreground"
-                      style={
+                  )}
+
+                  {isMenu && (
+                    <div
+                      className={`absolute left-1/2 top-full mt-3 -translate-x-1/2 transition-all duration-200 ${
                         isOpen
-                          ? {
-                              background:
-                                "color-mix(in oklab, var(--foreground) 6%, transparent)",
-                              color: "var(--foreground)",
-                            }
-                          : undefined
-                      }
+                          ? "pointer-events-auto translate-y-0 opacity-100"
+                          : "pointer-events-none -translate-y-1 opacity-0"
+                      }`}
                     >
-                      <Chevron
-                        className={`h-3 w-3 transition-transform duration-200 ${
-                          isOpen ? "rotate-180" : ""
+                      <DropdownPanel items={item.items} />
+                    </div>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => setPaletteOpen(true)}
+              aria-label="Search"
+              className="hidden items-center gap-3 rounded-full border px-4 py-2 text-[13px] text-muted transition-colors hover:text-foreground sm:inline-flex"
+              style={{
+                borderColor: "var(--border)",
+                background:
+                  "color-mix(in oklab, var(--foreground) 3%, transparent)",
+              }}
+            >
+              <SearchIcon className="h-3.5 w-3.5" />
+              <span>Search</span>
+              <kbd
+                className="rounded border px-1 py-0.5 text-[10px] font-mono"
+                style={{ borderColor: "var(--border-strong)" }}
+              >
+                ⌘K
+              </kbd>
+            </button>
+
+            <button
+              onClick={() => setPaletteOpen(true)}
+              aria-label="Search"
+              className="grid h-9 w-9 place-items-center rounded-full border text-muted transition-colors hover:text-foreground sm:hidden"
+              style={{
+                borderColor: "var(--border)",
+                background:
+                  "color-mix(in oklab, var(--foreground) 3%, transparent)",
+              }}
+            >
+              <SearchIcon className="h-4 w-4" />
+            </button>
+
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+              className="grid h-9 w-9 place-items-center rounded-full border text-muted transition-colors hover:text-foreground"
+              style={{
+                borderColor: "var(--border)",
+                background:
+                  "color-mix(in oklab, var(--foreground) 3%, transparent)",
+              }}
+            >
+              {theme === "dark" ? (
+                <Sun className="h-4 w-4" />
+              ) : (
+                <Moon className="h-4 w-4" />
+              )}
+            </button>
+
+            <Link
+              href="/register"
+              className="hidden items-center gap-1.5 rounded-full px-4 py-2 text-[13px] font-medium transition-all sm:inline-flex"
+              style={{
+                background: "var(--foreground)",
+                color: "var(--background)",
+              }}
+            >
+              Register
+              <ArrowRight className="h-3 w-3" />
+            </Link>
+
+            <button
+              onClick={() => setMobileOpen((v) => !v)}
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
+              className="grid h-9 w-9 place-items-center rounded-full border text-muted lg:hidden"
+              style={{ borderColor: "var(--border)" }}
+            >
+              {mobileOpen ? (
+                <Close className="h-4 w-4" />
+              ) : (
+                <Menu className="h-4 w-4" />
+              )}
+            </button>
+          </div>
+        </nav>
+
+        <div
+          className={`fixed inset-x-4 top-20 z-40 origin-top rounded-3xl border p-4 backdrop-blur-xl transition-all duration-200 lg:hidden ${
+            mobileOpen
+              ? "pointer-events-auto scale-100 opacity-100"
+              : "pointer-events-none scale-95 opacity-0"
+          }`}
+          style={{
+            background: "var(--surface-glass)",
+            borderColor: "var(--border)",
+            boxShadow: "0 20px 50px -20px rgba(0,0,0,0.4)",
+          }}
+        >
+          <ul className="flex flex-col">
+            {NAV.map((item) => {
+              const isMenu = "items" in item;
+              const isExpanded = isMenu && mobileExpanded === item.label;
+              return (
+                <li
+                  key={item.label}
+                  style={{ borderBottom: "1px solid var(--hairline)" }}
+                >
+                  {isMenu ? (
+                    <>
+                      <button
+                        onClick={() => toggleMobileSection(item.label)}
+                        className="flex w-full items-center justify-between px-3 py-3 text-sm font-medium text-foreground"
+                      >
+                        {item.label}
+                        <Chevron
+                          className={`h-3 w-3 text-subtle transition-transform duration-200 ${
+                            isExpanded ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
+                      <ul
+                        className={`overflow-hidden transition-all duration-200 ${
+                          isExpanded
+                            ? "max-h-[500px] opacity-100"
+                            : "max-h-0 opacity-0"
                         }`}
-                      />
-                    </button>
-                  </span>
-                ) : (
-                  <Link
-                    href={item.href}
-                    className="inline-block rounded-full px-3.5 py-1.5 text-[13px] transition-colors hover:text-foreground"
-                    style={{
-                      color: active
-                        ? "var(--foreground)"
-                        : "var(--muted)",
-                    }}
-                  >
-                    {item.label}
-                  </Link>
-                )}
-
-                {!item.disabled && isMenu && (
-                  <div
-                    className={`absolute left-1/2 top-full mt-3 -translate-x-1/2 transition-all duration-200 ${
-                      isOpen
-                        ? "pointer-events-auto translate-y-0 opacity-100"
-                        : "pointer-events-none -translate-y-1 opacity-0"
-                    }`}
-                  >
-                    <DropdownPanel items={item.items} />
-                  </div>
-                )}
-              </li>
-            );
-          })}
-        </ul>
-
-        <div className="flex items-center gap-1.5">
-          <button
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-            className="grid h-9 w-9 place-items-center rounded-full border text-muted transition-colors hover:text-foreground"
-            style={{
-              borderColor: "var(--border)",
-              background:
-                "color-mix(in oklab, var(--foreground) 3%, transparent)",
-            }}
-          >
-            {theme === "dark" ? (
-              <Sun className="h-4 w-4" />
-            ) : (
-              <Moon className="h-4 w-4" />
-            )}
-          </button>
+                      >
+                        {item.items.map((s) => (
+                          <li key={s.label}>
+                            <Link
+                              href={s.href}
+                              className="block rounded-xl px-4 py-2.5 text-sm text-muted hover:bg-foreground/5 hover:text-foreground"
+                            >
+                              {s.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="block px-3 py-3 text-sm font-medium text-foreground hover:bg-foreground/5"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
 
           <Link
-            href="/register"
-            className="hidden items-center gap-1.5 rounded-full px-4 py-2 text-[13px] font-medium transition-all sm:inline-flex"
+            href="/contact"
+            className="mt-3 flex items-center justify-center gap-2 rounded-full px-4 py-2.5 text-sm font-medium"
             style={{
               background: "var(--foreground)",
               color: "var(--background)",
             }}
           >
-            Register
-            <ArrowRight className="h-3 w-3" />
+            Join the network
+            <ArrowRight className="h-3.5 w-3.5" />
           </Link>
-
-          <button
-            onClick={() => setMobileOpen((v) => !v)}
-            aria-label="Open menu"
-            className="grid h-9 w-9 place-items-center rounded-full border text-muted lg:hidden"
-            style={{ borderColor: "var(--border)" }}
-          >
-            {mobileOpen ? (
-              <Close className="h-4 w-4" />
-            ) : (
-              <Menu className="h-4 w-4" />
-            )}
-          </button>
         </div>
-      </nav>
+      </header>
 
-      {/* Mobile panel */}
-      <div
-        className={`fixed inset-x-4 top-20 z-40 origin-top rounded-3xl border p-4 backdrop-blur-xl transition-all duration-200 lg:hidden ${
-          mobileOpen
-            ? "pointer-events-auto scale-100 opacity-100"
-            : "pointer-events-none scale-95 opacity-0"
-        }`}
-        style={{
-          background: "var(--surface-glass)",
-          borderColor: "var(--border)",
-          boxShadow: "0 20px 50px -20px rgba(0,0,0,0.4)",
-        }}
-      >
-        <ul className="flex flex-col">
-          {NAV.filter((item) => !item.disabled).map((item) =>
-            "items" in item ? (
-              <li key={item.label} className="py-1">
-                <Link
-                  href={item.href}
-                  className="block px-3 py-2 text-[11px] font-medium uppercase tracking-widest text-subtle"
-                >
-                  {item.label}
-                </Link>
-                <ul>
-                  {item.items.map((s) => (
-                    <li key={s.label}>
-                      <Link
-                        href={s.href}
-                        className="block rounded-xl px-3 py-2 text-sm text-foreground hover:bg-foreground/5"
-                      >
-                        {s.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ) : (
-              <li key={item.label}>
-                <Link
-                  href={item.href}
-                  className="block rounded-xl px-3 py-2.5 text-sm font-medium text-foreground hover:bg-foreground/5"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            )
-          )}
-        </ul>
-        <Link
-          href="/contact"
-          className="mt-3 flex items-center justify-center gap-2 rounded-full px-4 py-2.5 text-sm font-medium"
-          style={{
-            background: "var(--foreground)",
-            color: "var(--background)",
-          }}
-        >
-          Join the network
-          <ArrowRight className="h-3.5 w-3.5" />
-        </Link>
-      </div>
-    </header>
+      <CommandPalette open={paletteOpen} onClose={() => setPaletteOpen(false)} />
+    </>
   );
 }
 
@@ -371,8 +460,6 @@ function DropdownPanel({ items }: { items: SubItem[] }) {
     </div>
   );
 }
-
-/* ---- local icons ---- */
 
 function Chevron({ className = "" }: { className?: string }) {
   return (

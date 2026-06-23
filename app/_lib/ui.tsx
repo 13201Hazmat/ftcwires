@@ -314,3 +314,21 @@ export function SparkIcon({ className = "" }: { className?: string }) {
     </svg>
   );
 }
+
+export function SearchIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden
+    >
+      <circle cx="6.5" cy="6.5" r="4" />
+      <path d="M11 11l3 3" />
+    </svg>
+  );
+}
