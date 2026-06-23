@@ -45,11 +45,13 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
   const grouped = groupResults(results);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setActiveIndex(0);
   }, [query]);
 
   useEffect(() => {
     if (open) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setQuery("");
       setActiveIndex(0);
     }

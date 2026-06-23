@@ -118,18 +118,16 @@ export default function Navbar() {
   const pathname = usePathname();
 
   useEffect(() => {
-    /* eslint-disable react-hooks/set-state-in-effect */
     const t = localStorage.getItem("ftcw-theme");
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTheme(t === "light" ? "light" : "dark");
-    /* eslint-enable react-hooks/set-state-in-effect */
   }, []);
 
   useEffect(() => {
-    /* eslint-disable react-hooks/set-state-in-effect */
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setOpen(null);
     setMobileOpen(false);
     setMobileExpanded(null);
-    /* eslint-enable react-hooks/set-state-in-effect */
   }, [pathname]);
 
   useEffect(() => {
@@ -330,7 +328,8 @@ export default function Navbar() {
 
             <button
               onClick={() => setMobileOpen((v) => !v)}
-              aria-label="Open menu"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
               className="grid h-9 w-9 place-items-center rounded-full border text-muted lg:hidden"
               style={{ borderColor: "var(--border)" }}
             >
