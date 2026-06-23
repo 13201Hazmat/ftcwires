@@ -79,6 +79,7 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
           onClose();
         }
       } else if (e.key === "Escape") {
+        e.preventDefault();
         onClose();
       }
     }
