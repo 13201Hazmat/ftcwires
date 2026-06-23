@@ -117,6 +117,7 @@ function Contributors() {
     { username: "Aaditya-Tiwari", name: "Aaditya Tiwari",  role: "Hazmat Alumni" },
     { username: "28thakus",       name: "Shaurya Thakur",  role: "Team 13201 Hazmat" },
     { username: "FrontEndLol",    name: "Manyeh Luthra",   role: "Team 13201 Hazmat" },
+    { username: "shiva-dev-229",         name: "Shivansh Upadhyay",    role: "Team 16460 GEarheads" },
   ];
 
   return (

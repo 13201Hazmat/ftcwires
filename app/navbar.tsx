@@ -263,11 +263,11 @@ export default function Navbar() {
             })}
           </ul>
 
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-4">
             <button
               onClick={() => setPaletteOpen(true)}
               aria-label="Search"
-              className="hidden items-center gap-2 rounded-full border px-3 py-2 text-[13px] text-muted transition-colors hover:text-foreground sm:inline-flex"
+              className="hidden items-center gap-3 rounded-full border px-4 py-2 text-[13px] text-muted transition-colors hover:text-foreground sm:inline-flex"
               style={{
                 borderColor: "var(--border)",
                 background:
