@@ -92,7 +92,7 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
   let flatIndex = 0;
 
   return (
-    <div role="dialog" aria-modal="true" aria-label="Search" className="fixed inset-0 z-[60]">
+    <div className="fixed inset-0 z-[60]">
       <div
         className="absolute inset-0 bg-black/40 backdrop-blur-sm"
         onClick={onClose}
@@ -100,6 +100,9 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
 
       <div className="relative mx-auto mt-20 w-full max-w-xl px-4 sm:px-0">
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Search"
           className="overflow-hidden rounded-3xl border backdrop-blur-xl"
           style={{
             background: "var(--surface-glass)",
