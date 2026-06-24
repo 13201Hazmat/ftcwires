@@ -162,16 +162,19 @@ export const GENERATED_SEARCH_INDEX: SearchEntry[] = [
     "group": "Pages"
   },
   {
-    "title": "Parts Lending Network",
-    "description": "An upcoming statewide lending pool for FTC hardware. Join the early access list.",
-    "href": "/parts-lending-network",
+    "title": "PartsPool",
+    "description": "Browse and request FTC parts from teams across Wisconsin.",
+    "href": "/partspool",
     "keywords": [
-      "borrow",
-      "lend",
-      "hardware",
-      "waitlist",
       "parts",
-      "motors"
+      "lend",
+      "borrow",
+      "donate",
+      "exchange",
+      "hardware",
+      "motors",
+      "pool",
+      "share"
     ],
     "group": "Pages"
   },

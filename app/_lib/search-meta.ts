@@ -109,16 +109,24 @@ export const ROUTE_META: Record<string, RouteMeta> = {
     group: "Pages",
     keywords: ["sign up", "team number", "access", "guides", "auto", "autonomous"],
   },
-  "/parts-lending-network": {
-    group: "Pages",
-    keywords: ["borrow", "lend", "hardware", "waitlist", "parts", "motors"],
-  },
   "/planning": {
     group: "Pages",
     keywords: ["season", "roadmap", "communication", "burnout", "cadence"],
   },
+  "/partspool": {
+    group: "Pages",
+    keywords: ["parts", "lend", "borrow", "donate", "exchange", "hardware", "motors", "pool", "share"],
+  },
 };
 
-export const SEARCH_EXCLUDE: string[] = ["/partspool"];
+// PartsPool subpages are auth/flow pages — keep only the main /partspool in search.
+export const SEARCH_EXCLUDE: string[] = [
+  "/partspool/add",
+  "/partspool/login",
+  "/partspool/onboarding",
+  "/partspool/[id]",
+  "/partspool/my-listings",
+  "/partspool/requests",
+];
 
 export const MANUAL_ENTRIES: SearchEntry[] = [];

@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync, readdirSync, statSync } from "node:fs";
-import { join, dirname, relative } from "node:path";
+import { join, dirname, relative, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { ROUTE_META, SEARCH_EXCLUDE, type SearchEntry } from "../app/_lib/search-meta";
 
@@ -25,7 +25,8 @@ function walk(dir: string): string[] {
 }
 
 function deriveRoute(pagePath: string): string {
-  const rel = relative(APP_DIR, pagePath);
+  // Normalize OS path separators (Windows uses "\") to forward slashes
+  const rel = relative(APP_DIR, pagePath).split(sep).join("/");
   if (rel === "page.tsx") return "/";
   const dir = rel.replace(/\/page\.tsx$/, "");
   const parts = dir.split("/").filter((p) => !p.startsWith("("));

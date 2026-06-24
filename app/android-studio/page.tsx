@@ -36,7 +36,6 @@ export default function AndroidStudioPage() {
         }
       />
 
-      <Overview />
       <Steps />
       <WirelessADB />
       <NextSteps />
@@ -44,61 +43,6 @@ export default function AndroidStudioPage() {
   );
 }
 
-/* =====================================================
- * Overview — what you're about to do
- * ===================================================== */
-function Overview() {
-  return (
-    <section className="px-6 pb-16 lg:pb-24">
-      <div className="mx-auto max-w-4xl">
-        <div
-          className="flex items-start gap-4 rounded-2xl border p-5 sm:p-6"
-          style={{
-            borderColor: "var(--border)",
-            background:
-              "color-mix(in oklab, var(--foreground) 2.5%, transparent)",
-          }}
-        >
-          <span
-            className="mt-0.5 inline-block h-1.5 w-1.5 flex-none rounded-full"
-            style={{ background: "var(--foreground)" }}
-          />
-          <p className="text-[13.5px] leading-relaxed text-muted">
-            <span className="text-foreground">What you&rsquo;ll do.</span>{" "}
-            Install Android Studio, get the official{" "}
-            <span className="text-foreground">FtcRobotController</span>{" "}
-            project, open it in the IDE, connect your Control Hub by USB,
-            and run a sample OpMode end-to-end. Total time: about an hour
-            the first time, mostly waiting on downloads.
-          </p>
-        </div>
-
-        <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
-
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function StatChip({ label, value }: { label: string; value: string }) {
-  return (
-    <div
-      className="rounded-2xl border px-4 py-3"
-      style={{
-        borderColor: "var(--border)",
-        background: "var(--surface)",
-      }}
-    >
-      <div className="text-[10px] uppercase tracking-widest text-subtle">
-        {label}
-      </div>
-      <div className="mt-1 text-[14px] font-medium tracking-tight text-foreground">
-        {value}
-      </div>
-    </div>
-  );
-}
 
 
 /* =====================================================
