@@ -114,6 +114,7 @@ export default function Navbar() {
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [theme, setTheme] = useState<"light" | "dark">("dark");
+  const [isMac, setIsMac] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
@@ -121,6 +122,7 @@ export default function Navbar() {
     const t = localStorage.getItem("ftcw-theme");
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setTheme(t === "light" ? "light" : "dark");
+    setIsMac(/Mac/.test(navigator.platform));
   }, []);
 
   useEffect(() => {
@@ -280,7 +282,7 @@ export default function Navbar() {
                 className="rounded border px-1 py-0.5 text-[10px] font-mono"
                 style={{ borderColor: "var(--border-strong)" }}
               >
-                ⌘K
+                {isMac ? "⌘K" : "Ctrl+K"}
               </kbd>
             </button>
 
