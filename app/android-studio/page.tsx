@@ -864,14 +864,10 @@ function DocIcon({ className = "" }: { className?: string }) {
 function NextSteps() {
   return (
     <section className="px-6 pb-24 lg:pb-32">
-      <div className="mx-auto max-w-5xl flex flex-col items-start gap-3 sm:flex-row">
-        <PrimaryButton href="/command-based">
-          Learn command-based architecture
-          <ArrowRight className="h-4 w-4" />
-        </PrimaryButton>
-        <GhostButton href="/software-platform">
-          Browse software guides
-        </GhostButton>
+      <div className="mx-auto max-w-5xl">
+        <a href="/software-platform" className="text-sm text-muted transition-colors hover:text-foreground">
+          ← Back to Software Platform
+        </a>
       </div>
     </section>
   );

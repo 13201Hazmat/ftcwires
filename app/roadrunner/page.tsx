@@ -53,7 +53,20 @@ export default function RoadrunnerPage() {
       <VideoSection />
       <SignUp />
       <OfficialResources />
+      <BackLink />
     </>
+  );
+}
+
+function BackLink() {
+  return (
+    <div className="px-6 pb-24">
+      <div className="mx-auto max-w-5xl">
+        <a href="/software-platform" className="text-sm text-muted transition-colors hover:text-foreground">
+          ← Back to Software Platform
+        </a>
+      </div>
+    </div>
   );
 }
 
@@ -280,13 +293,13 @@ function OfficialResources() {
     {
       tag: "Guide",
       title: "Learn Roadrunner",
-      desc: "The go-to community guide for Roadrunner. Covers installation, tuning every parameter, and building trajectories from scratch.",
+      desc: "The Roadrunner guide and docs.",
       href: "https://learnroadrunner.com/introduction.html",
     },
     {
       tag: "GitHub",
       title: "GitHub repository",
-      desc: "The source code  and the quickstart for Roadrunner.",
+      desc: "The source code and the quickstart for Roadrunner.",
       href: "https://github.com/acmerobotics/road-runner-quickstart",
     },
   ];

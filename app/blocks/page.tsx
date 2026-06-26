@@ -51,7 +51,20 @@ export default function BlocksPage() {
       <VideoSection />
       <SignUp />
       <OfficialResources />
+      <BackLink />
     </>
+  );
+}
+
+function BackLink() {
+  return (
+    <div className="px-6 pb-24">
+      <div className="mx-auto max-w-5xl">
+        <a href="/software-platform" className="text-sm text-muted transition-colors hover:text-foreground">
+          ← Back to Software Platform
+        </a>
+      </div>
+    </div>
   );
 }
 

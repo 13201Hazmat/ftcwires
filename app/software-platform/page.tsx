@@ -103,7 +103,22 @@ const GENERAL_TOOLS: Guides[] = [
     status: "available",
     upstream: "WPILib · NextFTC · Ivy",
   },
-  
+  {
+    name: "Java for FTC — Video Series",
+    blurb:
+        "A beginner series teaching Java programming with a FTC focus. We are still working on videos so not all of them are out yet.",
+    href: "/java-series",
+    status: "available",
+    upstream: "FTC Wires Original",
+  },
+  {
+    name: "Blocks for FTC — Video Series",
+    blurb:
+        "A beginner series teaching Block programming for FTC. We are still working on videos so not all of them are out yet.",
+    href: "/blocks-series",
+    status: "available",
+    upstream: "FTC Wires Original",
+  },
 ];
 
 function Tools() {
