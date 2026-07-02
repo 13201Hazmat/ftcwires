@@ -102,7 +102,6 @@ async function ensureTab(tab: TabName) {
 
 /** Read all data rows from a tab as objects keyed by header. */
 export async function getRows(tab: TabName): Promise<Row[]> {
-  await ensureTab(tab);
   const sheets = getSheets();
   const res = await sheets.spreadsheets.values.get({
     spreadsheetId: SHEET_ID,
@@ -110,8 +109,8 @@ export async function getRows(tab: TabName): Promise<Row[]> {
   });
   const values = res.data.values ?? [];
   if (values.length < 2) return [];
-  // Key by the canonical schema (positional) — ensureTab has already aligned
-  // the physical header row to TABS, so column positions are authoritative.
+  // Key by the canonical schema (positional) — writes call ensureTab, which
+  // keeps the physical header row aligned to TABS, so column positions are authoritative.
   const headers = TABS[tab] as unknown as string[];
   return values.slice(1).map((row) => {
     const obj: Row = {};

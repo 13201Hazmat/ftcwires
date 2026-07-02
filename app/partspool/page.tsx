@@ -6,7 +6,7 @@ export const metadata = {
   description: "Browse and request FTC parts from teams across Wisconsin.",
 };
 
-export const dynamic = "force-dynamic";
+export const revalidate = 20;
 
 export default async function PartsPoolPage() {
   const listings = await getActiveListings();
