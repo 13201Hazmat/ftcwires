@@ -52,6 +52,12 @@ export const GENERATED_SEARCH_INDEX: SearchEntry[] = [
     "group": "Guides"
   },
   {
+    "title": "Blocks for FTC",
+    "description": "A video series teaching FTC Blocks programming.",
+    "href": "/blocks-series",
+    "group": "Pages"
+  },
+  {
     "title": "Command-Based Architecture",
     "description": "Educational guidance and architectural recommendations for organizing FTC robot code with the command-based pattern.",
     "href": "/command-based",
@@ -119,6 +125,12 @@ export const GENERATED_SEARCH_INDEX: SearchEntry[] = [
     "description": "",
     "href": "/git#troubleshooting",
     "group": "Guides"
+  },
+  {
+    "title": "Java for FTC",
+    "description": "A video series teaching Java programming for FTC teams, from the basic to writing a tele op",
+    "href": "/java-series",
+    "group": "Pages"
   },
   {
     "title": "Outreach",
