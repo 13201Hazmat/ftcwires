@@ -54,7 +54,7 @@ function Channels() {
       tag: "GitHub",
       label: "Github Repo",
       desc: "Our github repo for WIRES, if you do want to contribute please fork and submit a PR!",
-      href: "https://github.com/13201Hazmat/ftcwires",
+      href: "https://github.com/13201Hazmat/FTCWiresPublicSite",
     }
   ];
 
