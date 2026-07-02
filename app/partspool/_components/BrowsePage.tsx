@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import { CATEGORIES, CONDITIONS, LISTING_TYPES, driveImageUrl } from "./constants";
+import AccountBadge from "./AccountBadge";
 import type { Listing } from "../../_lib/partspool-data";
 
 export default function BrowsePage({ listings }: { listings: Listing[] }) {
@@ -65,6 +66,7 @@ export default function BrowsePage({ listings }: { listings: Listing[] }) {
               <PlusIcon />
               Add Part
             </Link>
+            <AccountBadge />
           </div>
         </div>
 
