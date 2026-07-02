@@ -10,6 +10,7 @@ const COLS: { title: string; links: [string, string][] }[] = [
       ["Pedro Pathing", "/pedro-pathing"],
       ["Command-Based", "/command-based"],
       ["Android Studio", "/android-studio"],
+      ["Git Setup", "/git"],
     ],
   },
   {
@@ -21,6 +22,7 @@ const COLS: { title: string; links: [string, string][] }[] = [
       ["Hardware", "/resources#hardware"],
       ["Software", "/resources#software"],
       ["Game Strategy", "/resources#game-strategy"],
+      ["Planning", "/planning"],
     ],
   },
   {
@@ -32,8 +34,17 @@ const COLS: { title: string; links: [string, string][] }[] = [
     ],
   },
   {
+    title: "Video Series",
+    links: [
+      ["Blocks Series", "/blocks-series"],
+      ["Java Series", "/java-series"],
+    ],
+  },
+  {
     title: "More",
     links: [
+      ["Outreach", "/outreach"],
+      ["PartsPool", "/partspool"],
       ["Contact", "/contact"],
       ["Register", "/register"],
     ],
@@ -47,7 +58,7 @@ export default function Footer() {
       style={{ borderColor: "var(--border)" }}
     >
       <div className="mx-auto max-w-6xl">
-        <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:grid-cols-7">
           <div className="col-span-2">
             <Link href="/" className="inline-flex">
               <WiresLogo size={28} />
